@@ -1,0 +1,21 @@
+use_udp_trackers = yes
+
+port_range = 9943-9943
+
+directory = ~/media/.torrents
+#necessary for DHT
+session = ~/media/.rtorrent_session
+
+dht_port = 9944
+dht = on
+
+peer_exchange = yes
+
+check_hash = yes
+
+encryption = allow_incoming,try_outgoing
+
+download_rate = 1500
+upload_rate = 70
+
+#max_peers = 10

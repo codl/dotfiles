@@ -1,0 +1,26 @@
+enable-mouse = yes
+
+#audible-bell = no
+#visible-bell = yes
+set-xterm-title = yes
+
+search-mode = 4
+
+scroll-offset = 3
+
+enable-colors = yes
+
+color background = none
+color title = magenta
+color title-bold = magenta
+color line = magenta
+color line-bold = magenta
+color list = white
+color list-bold = cyan
+color browser-directory = white
+color browser-playlist =  white
+color progressbar =       magenta
+color status-state =      magenta
+color status-song =       cyan
+color status-time =       magenta
+color alert =             white

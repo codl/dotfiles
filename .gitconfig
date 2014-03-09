@@ -1,0 +1,19 @@
+[user]
+	name = Corentin Delcourt
+	email = codl@codl.fr
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[alias]
+	logg = log --oneline --graph --decorate
+
+[push]
+	default = matching
+
+[color]
+	ui = auto
+[core]
+	excludesfile = /home/codl/.gitignore
