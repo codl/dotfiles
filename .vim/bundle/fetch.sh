@@ -10,6 +10,7 @@ plugins=(
     "obsession#git://github.com/tpope/vim-obsession.git"
     "sleuth#git://github.com/tpope/vim-sleuth.git"
     "syntastic#git://github.com/scrooloose/syntastic.git"
+    "tabular#git://github.com/godlygeek/tabular.git"
     "vinegar#git://github.com/tpope/vim-vinegar.git"
 )
 
@@ -30,3 +31,5 @@ for plugin in ${plugins[*]}; do
         git clone $repository $name
     fi
 done
+
+vim "+Helptags" "+q"
