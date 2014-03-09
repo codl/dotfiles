@@ -1,2 +1,5 @@
 exclude:
     - "README.markdown"
+
+include:
+    - ".gitignore"
