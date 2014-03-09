@@ -1,0 +1,75 @@
+xterm*font:	-*-fixed-*-*-*-*-10-*-*-*-*-*-*-*
+xterm*boldFont:	-*-fixed-bold-*-*-*-10-*-*-*-*-*-*-*
+URxvt.matcher.pattern.1:	\\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+URxvt.matcher.button:	3
+URxvt.perl-ext-common:	default,matcher,font-size
+URxvt.font-size.step: 4
+URxvt.url-launcher: firefox
+URxvt.visualBell:	true
+URxvt.urgentOnBell: true
+URxvt.scrollBar:	false
+#URxvt*font: xft:fixed:pixelsize=9
+URxvt*font: xft:Dejavu Sans Mono:pixelsize=11:antialias=true:autohint=false
+#URxvt*boldFont: xft:fixed:pixelsize=9
+URxvt.searchable-scrollback:	CM-s
+URxvt.blink:	true
+URxvt.geometry:	75x27
+URxvt.internalBorder: 2
+
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+
+! --- special colors ---
+
+*background: #0b2733
+*foreground: #cef4fd
+
+! --- standard colors ---
+
+! black
+*color0: #071b1f
+
+! bright_black
+*color8: #283c40
+
+! red
+*color1: #985e61
+
+! bright_red
+*color9: #cbbec1
+
+! green
+*color2: #4aac61
+
+! bright_green
+*color10: #aadfc1
+
+! yellow
+*color3: #98ac61
+
+! bright_yellow
+*color11: #cbdfc1
+
+! blue
+*color4: #4a5eb0
+
+! bright_blue
+*color12: #aabee3
+
+! magenta
+*color5: #985eb0
+
+! bright_magenta
+*color13: #cbbee3
+
+! cyan
+*color6: #4aacb0
+
+! bright_cyan
+*color14: #aadfe3
+
+! white
+*color7: #c6dade
+
+! bright_white
+*color15: #e7fbff
