@@ -18,8 +18,6 @@ panel_height=18
 font="-*-Ubuntu-*-*-*-*-10-*-*-*-*-*-*-*"
 font="-*-Roboto+DroidSansJap-*-*-*-*-10-*-*-*-*-*-*-*"
 
-trayer="trayer --alpha 0 --transparent true --tint 0xf2e9e2 --widthtype request --height $panel_height --align right --edge top --expand true"
-
  MOST="#cc0000"
  MORE="#01a242"
    FG="#331d11"
@@ -35,6 +33,8 @@ COLORS=$( dirname $0 )/$( hostname -s ).colors.sh
 if [[ -f $COLORS ]]; then
   source $COLORS
 fi
+
+trayer="trayer --alpha 0 --transparent true --tint 0x${BG#'#'} --widthtype request --height $panel_height --align right --edge top --expand true"
 
 ####
 # true if we are using the svn version of dzen2
