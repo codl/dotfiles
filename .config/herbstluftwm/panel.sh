@@ -31,6 +31,11 @@ LEAST="#ccc5bb"
 
 SPACING="   "
 
+CUSTOM_FILE=$( dirname $0 )/$( hostname -s ).conf
+if [[ -f $CUSTOM_FILE ]]; then
+  source $CUSTOM_FILE
+fi
+
 ####
 # true if we are using the svn version of dzen2
 # depending on version/distribution, this seems to have version strings like
