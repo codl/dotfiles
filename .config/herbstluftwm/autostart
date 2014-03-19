@@ -158,6 +158,9 @@ hc rule focus=on
 
 hc rule class~'[Tt]rayer' manage=off
 
+hc rule class~'mednafen' pseudotile=on
+hc rule class~'StepMania' pseudotile=on
+
 # find the panel
 panel=~/.config/herbstluftwm/panel.sh
 [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
