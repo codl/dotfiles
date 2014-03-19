@@ -142,9 +142,14 @@ hc set always_show_frame 0
 
 hc set focus_stealing_prevention 0
 
-hc set window_border_active_color \#01a242
-hc set window_border_normal_color \#ddbb99
-hc set window_border_urgent_color \#cc0000
+COLORS=$( dirname $0 )/$( hostname -s ).colors.sh
+if [[ -f $COLORS ]]; then
+  source $COLORS
+fi
+
+hc set window_border_active_color $MORE
+hc set window_border_normal_color $BG
+hc set window_border_urgent_color $MOST
 
 hc set frame_bg_active_color black
 hc set frame_active_opacity 50

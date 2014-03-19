@@ -31,9 +31,9 @@ LEAST="#ccc5bb"
 
 SPACING="   "
 
-CUSTOM_FILE=$( dirname $0 )/$( hostname -s ).conf
-if [[ -f $CUSTOM_FILE ]]; then
-  source $CUSTOM_FILE
+COLORS=$( dirname $0 )/$( hostname -s ).colors.sh
+if [[ -f $COLORS ]]; then
+  source $COLORS
 fi
 
 ####
