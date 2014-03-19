@@ -11,6 +11,8 @@ uim-xim &
 uim-toolbar-gtk-systray &
 export XMODIFIERS=@im=uim
 
+[[ -f $HOME/.xrandr.sh ]] && source $HOME/.xrandr.sh
+[[ -f $HOME/.wacom.sh ]] && source $HOME/.wacom.sh
 
 setxkbmap fr -option compose:menu
 xmodmap $HOME/.xmodmap
