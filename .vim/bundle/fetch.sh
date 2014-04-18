@@ -12,6 +12,8 @@ plugins=(
     "syntastic#git://github.com/scrooloose/syntastic.git"
     "tabular#git://github.com/godlygeek/tabular.git"
     "vinegar#git://github.com/tpope/vim-vinegar.git"
+    "vimproc#git://github.com/Shougo/vimproc.vim.git"
+    "vimshell#git://github.com/Shougo/vimshell.vim.git"
 )
 
 
@@ -29,6 +31,11 @@ for plugin in ${plugins[*]}; do
         git pull
     else
         git clone $repository $name
+    fi
+
+    if [[ -f $name/Makefile ]]; then
+        cd $name
+        make
     fi
 done
 
