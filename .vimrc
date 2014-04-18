@@ -83,6 +83,9 @@ nnoremap <F12> :iunmap <lt>BS><CR>
 " quick file switch with ,;
 nnoremap <leader>; <C-^>
 
+nnoremap ç 10k
+nnoremap à 10j
+
 set listchars=nbsp:¤,tab:\|\ ,trail:•,extends:>,precedes:<
 set list
 
