@@ -15,7 +15,7 @@ check_hash = yes
 
 encryption = allow_incoming,try_outgoing
 
-download_rate = 1500
+download_rate = 1000
 upload_rate = 70
 
 #max_peers = 10
