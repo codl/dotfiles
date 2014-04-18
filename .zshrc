@@ -16,6 +16,9 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 
 PS1="%F{white}%S%1>>%n%<<@%1>>%m%<< %2~%s%F{black}%B$%b%f "
+if [[ ! -z $SSH_CONNECTION ]]; then
+    PS1="%F{green}%S%1>>%n%<<@%1>>%m%<< %2~%s%F{black}%B$%b%f "
+fi
 
 bindkey "\e[A" up-line-or-search
 bindkey "\e[B" down-line-or-search
