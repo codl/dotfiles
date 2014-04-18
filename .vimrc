@@ -1,5 +1,3 @@
-let g:syntastic_javascript_closure_compiler_path = '/usr/share/java/closure-compiler/closure-compiler.jar'
-
 execute pathogen#infect()
 
 set nocompatible
@@ -82,6 +80,9 @@ map <right> <nop>
 nnoremap <F11> :inoremap <lt>BS> <lt>nop><CR>
 nnoremap <F12> :iunmap <lt>BS><CR>
 
+" quick file switch with ,;
+nnoremap <leader>; <C-^>
+
 set listchars=nbsp:¤,tab:\|\ ,trail:•,extends:>,precedes:<
 set list
 
@@ -109,7 +110,7 @@ if has("autocmd")
     augroup END
 endif
 
-nnoremap mk :Dispatch<CR>
+nnoremap <leader>k :Dispatch<CR>
 
 let g:ctrlp_map = ';;'
 nnoremap ;: :CtrlPMRUFiles<CR>
