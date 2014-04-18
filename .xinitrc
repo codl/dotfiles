@@ -23,8 +23,6 @@ xbindkeys
 } &
 compton --config .compton.conf &
 
-#pulseaudio --start &
-
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 
