@@ -70,6 +70,9 @@ set guioptions=aFi
 set guicursor+=a:blinkon0 " disable cursor blinking
 set guifont=Droid\ Sans\ Mono\ 9
 
+" split to the right, not to the left
+set splitright
+
 " fuck arrow keys
 map <up> <nop>
 map <down> <nop>
