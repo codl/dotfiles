@@ -125,7 +125,7 @@ endif
 nnoremap <leader>k :Dispatch<CR>
 
 let g:ctrlp_map = ';;'
-nnoremap ;: :CtrlPMRUFiles<CR>
+nnoremap ;, :CtrlPMRUFiles<CR>
 
 let g:airline#extensions#tabline#enabled = 1
 
