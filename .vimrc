@@ -93,6 +93,11 @@ nnoremap ç 10j
 set listchars=nbsp:¤,tab:\|\ ,trail:•,extends:>,precedes:<
 set list
 
+set winwidth=80
+set winheight=6
+set winminheight=6
+set winheight=999
+
 if has("autocmd")
     if !has('gui_running')
         set ttimeoutlen=10
