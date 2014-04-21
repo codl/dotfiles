@@ -79,10 +79,6 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
-" toggle backspace with F11 and F12
-nnoremap <F11> :inoremap <lt>BS> <lt>nop><CR>
-nnoremap <F12> :iunmap <lt>BS><CR>
-
 " quick file switch with ,;
 nnoremap <leader>; <C-^>
 
