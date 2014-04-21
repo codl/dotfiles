@@ -90,7 +90,7 @@ nnoremap <leader>; <C-^>
 nnoremap à 10k
 nnoremap ç 10j
 
-set listchars=nbsp:¤,tab:\|\ ,trail:•,extends:>,precedes:<
+set listchars=nbsp:␣,tab:\|\ ,trail:␣,extends:>,precedes:<
 set list
 
 set winwidth=80
