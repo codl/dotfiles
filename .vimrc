@@ -125,9 +125,3 @@ let g:ctrlp_map = ';;'
 nnoremap ;, :CtrlPMRUFiles<CR>
 
 let g:airline#extensions#tabline#enabled = 1
-
-" lol
-"set cursorline cursorcolumn
-
-":hi CursorLine   term=standout cterm=standout gui=standout
-":hi CursorColumn term=standout cterm=standout gui=standout
