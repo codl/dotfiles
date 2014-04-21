@@ -8,7 +8,9 @@
 	remote = green
 
 [alias]
+	lg = !git --no-pager log --oneline --graph --decorate --all -10
 	logg = log --oneline --graph --decorate
+	pullff = pull --ff-only
 
 [push]
 	default = matching
