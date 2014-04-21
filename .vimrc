@@ -119,6 +119,8 @@ if has("autocmd")
         au!
         autocmd BufNewFile,BufRead /home/codl/dnd/notes/* set sw=2 fdm=indent fml=1 fdl=0
         autocmd BufWritePost /home/codl/.vimrc source /home/codl/.vimrc
+        " jump to last position when opening a file
+        autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
     augroup END
 endif
 
