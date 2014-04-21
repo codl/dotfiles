@@ -98,15 +98,10 @@ set winheight=6
 set winminheight=6
 set winheight=999
 
+" fast escape out of insert mode
+set ttimeoutlen=10
+
 if has("autocmd")
-    if !has('gui_running')
-        set ttimeoutlen=10
-        augroup FastEscape
-            autocmd!
-            au InsertEnter * set timeoutlen=0
-            au InsertLeave * set timeoutlen=1000
-        augroup END
-    endif
     augroup Dispatch
         au!
         autocmd BufNewFile,BufRead *.md set filetype=markdown
