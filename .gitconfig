@@ -8,7 +8,7 @@
 	remote = green
 
 [alias]
-	lg = !git --no-pager log --oneline --graph --decorate --all -10
+	lg = !git --no-pager log --graph --all -10 --pretty=format:'%C(auto)%h%d %s %C(red)%cr%Creset' && echo
 	logg = log --oneline --graph --decorate
 	pullff = pull --ff-only
 
