@@ -18,4 +18,4 @@ encryption = allow_incoming,try_outgoing
 download_rate = 1000
 upload_rate = 70
 
-#max_peers = 10
+max_peers = 10
