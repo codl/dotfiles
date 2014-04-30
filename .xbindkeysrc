@@ -1,0 +1,44 @@
+"amixer -c 0 sset Master 2%-"
+  XF86AudioLowerVolume
+"amixer -c 0 sset Master 2%+"
+  XF86AudioRaiseVolume
+"amixer -c 0 sset Master toggle"
+  XF86AudioMute
+"pavucontrol"
+  Alt + Mod4 + v
+
+"amixer -c 0 sset Master 2%-"
+  Mod4 + b:5
+"amixer -c 0 sset Master 2%+"
+  Mod4 + b:4
+
+"urxvt"
+  Mod4+w
+"dmenu_run"
+  Mod4 + x
+
+"sscrot"
+  Print
+"sscrot -s"
+  shift + Print
+"sscrot -v"
+  Control + Print
+
+"slock"
+  Control+Shift + Escape
+
+"true"
+    F15
+
+"xbacklight +10"
+    XF86MonBrightnessUp
+
+"xbacklight -10"
+    XF86MonBrightnessDown
+
+"mpc prev"
+  Mod4 + F10
+"mpc toggle"
+  Mod4 + F11
+"mpc next"
+  Mod4 + F12
