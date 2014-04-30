@@ -9,7 +9,7 @@ URxvt.visualBell:	true
 URxvt.urgentOnBell: true
 URxvt.scrollBar:	false
 #URxvt*font: xft:fixed:pixelsize=9
-URxvt*font: xft:Dejavu Sans Mono:pixelsize=11:antialias=true:autohint=false
+URxvt*font: xft:Dejavu Sans Mono for Powerline:pixelsize=11:antialias=true:autohint=false,xft:Symbola:pixelsize=10
 #URxvt*boldFont: xft:fixed:pixelsize=9
 URxvt.searchable-scrollback:	CM-s
 URxvt.blink:	true

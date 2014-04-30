@@ -125,5 +125,6 @@ nnoremap <leader>K :Dispatch
 let g:ctrlp_map = ';;'
 nnoremap ;, :CtrlPMRUFiles<CR>
 
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
