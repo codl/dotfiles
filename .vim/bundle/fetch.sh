@@ -14,6 +14,7 @@ plugins=(
     "vinegar#git://github.com/tpope/vim-vinegar.git"
     "vimproc#git://github.com/Shougo/vimproc.vim.git"
     "vimshell#git://github.com/Shougo/vimshell.vim.git"
+    "pathogen#git://github.com/tpope/vim-pathogen.git"
 )
 
 

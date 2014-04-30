@@ -1,3 +1,7 @@
+if !isdirectory($HOME. "/.vim/bundle/pathogen")
+    ! $HOME/.vim/bundle/fetch.sh
+endif
+runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 set nocompatible
