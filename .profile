@@ -3,3 +3,5 @@ export GOPATH=$HOME/go
 export EDITOR="vim"
 export PAGER="most"
 export GEM_HOME=$(ruby -e 'puts Gem.user_dir')
+
+[[ $TTY == '/dev/tty1' && $DISPLAY == '' ]] && exec startx
