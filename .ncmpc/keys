@@ -3,6 +3,9 @@
 ## Key configuration screen
 key screen-keyedit = 61
 
+## Range selection
+key range-select = 'v',  'V'
+
 ## Pause
 key pause = 274
 
