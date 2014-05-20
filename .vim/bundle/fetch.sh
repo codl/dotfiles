@@ -20,13 +20,19 @@ plugins=(
 
 
 for plugin in ${plugins[*]}; do
-    name=${plugin%%#*}
-    repository=${plugin#*#}
+    IFS='#' read -ra plugin <<< "$plugin"
+    name=${plugin[0]}
+    repository=${plugin[1]}
+    subdir=${plugin[2]}
 
     cd ~/.vim/bundle/
 
     echo
     echo "Fetching $name"
+
+    if [[ -n $subdir ]]; then
+        cd /tmp
+    fi
 
     if [[ -d $name ]]; then
         cd $name
@@ -38,6 +44,11 @@ for plugin in ${plugins[*]}; do
     if [[ -f $name/Makefile ]]; then
         cd $name
         make
+    fi
+
+    if [[ -n $subdir ]]; then
+        cd ~/.vim/bundle/
+        rsync -a /tmp/$name/$subdir/ $name
     fi
 done
 
