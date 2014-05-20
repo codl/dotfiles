@@ -15,7 +15,7 @@ plugins=(
     "vimproc#git://github.com/Shougo/vimproc.vim.git"
     "vimshell#git://github.com/Shougo/vimshell.vim.git"
     "pathogen#git://github.com/tpope/vim-pathogen.git"
-    "jellybeans#git@github.com:nanotech/jellybeans.vim.git"
+    "jellybeans#git://github.com/nanotech/jellybeans.vim.git"
 )
 
 
