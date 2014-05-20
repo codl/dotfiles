@@ -1,7 +1,8 @@
-export PATH="$HOME/bin:$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export PATH="$HOME/bin:$PATH"
 export GOPATH=$HOME/go
 export EDITOR="vim"
 export PAGER="most"
-export GEM_HOME=$(ruby -e 'puts Gem.user_dir')
 
 [[ $TTY == '/dev/tty1' && $DISPLAY == '' ]] && exec startx
