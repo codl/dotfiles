@@ -28,4 +28,6 @@ autocutsel -selection PRIMARY -fork &
 
 redshift -l 48:4.1 &
 
+[[ -f /bin/whatpulse ]] && whatpulse &
+
 exec ${WM:-herbstluftwm}
