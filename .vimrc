@@ -49,6 +49,7 @@ set undodir=~/.vim/undo " persistent undo
 set undofile            " ^
 
 set wildignore=*.bak,*.pyc,*.class,*.o,*.d
+set wildignore+=*/.git/*
 set pastetoggle=<F2> " press f2 in insert mode to disable paste-harmful features
 
 set wildmenu " show a sexy menu when tab-completing
