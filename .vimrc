@@ -108,7 +108,7 @@ if has("autocmd")
         autocmd FileType go let b:dispatch = 'go build'
         au FileType scss let b:dispatch = 'sass --update %'
         au FileType ruby let b:dispatch = 'rake'
-        au BufWritePost *.scss Dispatch!
+        au BufWritePost *[^c][^s][^s].scss Dispatch!
     augroup END
     augroup Stuff
         au!
