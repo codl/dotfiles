@@ -20,6 +20,7 @@ xbindkeys
 {
     sleep 5
     keepassx &
+    [[ -f /bin/whatpulse ]] && whatpulse &
 } &
 compton --config .compton.conf &
 
@@ -27,7 +28,5 @@ autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 
 redshift -l 48:4.1 &
-
-[[ -f /bin/whatpulse ]] && whatpulse &
 
 exec ${WM:-herbstluftwm}
