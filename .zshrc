@@ -26,3 +26,5 @@ bindkey "\e[B" down-line-or-search
 bindkey ${terminfo[khome]} beginning-of-line
 bindkey ${terminfo[kend]} end-of-line
 bindkey ${terminfo[kdch1]} delete-char
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
