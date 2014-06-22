@@ -1,0 +1,4 @@
+player=mpv
+player-args=--loop=inf {filename}
+best-stream-default
+#player-continuous-http
