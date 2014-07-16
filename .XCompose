@@ -1093,3 +1093,4 @@ include "%L"
 
 <Multi_key> <Multi_key> <w> <c> : "🚽" # TOILET
 <Multi_key> <Multi_key> <m> <d> : "💽" # MINIDISC
+<Multi_key> <underscore> <parenright> : "‿" # a smile -‿-
