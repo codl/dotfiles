@@ -17,6 +17,7 @@ plugins=(
     "vimproc#git://github.com/Shougo/vimproc.vim.git"
     "vimshell#git://github.com/Shougo/vimshell.vim.git"
     "vinegar#git://github.com/tpope/vim-vinegar.git"
+    "supertab#git://github.com/ervandew/supertab.git"
 )
 
 
