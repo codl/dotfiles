@@ -2,20 +2,21 @@
 
 plugins=(
     "airline#git://github.com/bling/vim-airline.git"
+    "css-color#git://github.com/ap/vim-css-color.git"
     "ctrlp#git://github.com/kien/ctrlp.vim.git"
     "dispatch#git://github.com/tpope/vim-dispatch.git"
     "fugitive#git://github.com/tpope/vim-fugitive.git"
     "gitgutter#git://github.com/airblade/vim-gitgutter.git"
     "gitv#git://github.com/gregsexton/gitv.git"
+    "jellybeans#git://github.com/nanotech/jellybeans.vim.git"
     "obsession#git://github.com/tpope/vim-obsession.git"
+    "pathogen#git://github.com/tpope/vim-pathogen.git"
     "sleuth#git://github.com/tpope/vim-sleuth.git"
     "syntastic#git://github.com/scrooloose/syntastic.git"
     "tabular#git://github.com/godlygeek/tabular.git"
-    "vinegar#git://github.com/tpope/vim-vinegar.git"
     "vimproc#git://github.com/Shougo/vimproc.vim.git"
     "vimshell#git://github.com/Shougo/vimshell.vim.git"
-    "pathogen#git://github.com/tpope/vim-pathogen.git"
-    "jellybeans#git://github.com/nanotech/jellybeans.vim.git"
+    "vinegar#git://github.com/tpope/vim-vinegar.git"
 )
 
 
