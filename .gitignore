@@ -5,3 +5,4 @@ Session.vim
 .netrwhist
 *~
 .sass-cache/
+node_modules/
