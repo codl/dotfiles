@@ -22,7 +22,6 @@ xbindkeys
     keepassx &
     [[ -f /bin/whatpulse ]] && whatpulse &
 } &
-compton --config .compton.conf &
 
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
