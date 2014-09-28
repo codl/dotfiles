@@ -20,7 +20,6 @@ xbindkeys
 {
     sleep 5
     keepassx &
-    [[ -f /bin/whatpulse ]] && whatpulse &
 } &
 
 autocutsel -fork &
