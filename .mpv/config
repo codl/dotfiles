@@ -1,2 +1,3 @@
 loop=inf
-framedrop=yes
+framedrop=decoder+vo
+cache-default=10000
