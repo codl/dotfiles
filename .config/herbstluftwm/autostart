@@ -88,22 +88,12 @@ hc keybind $Mod-Shift-Up shift up
 hc keybind $Mod-Shift-Right shift right
 
 # colors
-hc set frame_border_active_color '#222222'
-hc set frame_border_normal_color '#101010'
-hc set frame_bg_normal_color '#565656'
-hc set frame_bg_active_color '#345F0C'
-hc set frame_border_width 1
-hc set window_border_width 3
-hc set window_border_inner_width 0
-hc set window_border_normal_color '#454545'
-hc set window_border_active_color '#9fbc00'
-hc set always_show_frame 1
-hc set frame_gap 4
-hc set window_gap 0
-hc set frame_padding 2
-hc set smart_window_surroundings 0
-hc set smart_frame_surroundings 1
-hc set mouse_recenter_gap 0
+#hc set frame_border_active_color '#222222'
+#hc set frame_border_normal_color '#101010'
+#hc set frame_bg_normal_color '#565656'
+#hc set frame_bg_active_color '#345F0C'
+#hc set window_border_normal_color '#454545'
+#hc set window_border_active_color '#9fbc00'
 
 
 # rules
@@ -116,9 +106,6 @@ hc unrule -F
 #hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 #hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK)' manage=off
 
-# unlock, just to be sure
-hc unlock
-
 herbstclient set tree_style '╾│ ├└╼─┐'
 
 # do multi monitor setup here, e.g.:
@@ -130,17 +117,30 @@ hc set auto_detect_monitors 1
 hc set focus_follows_mouse 1
 hc set swap_monitors_to_get_tag 1
 
-hc set frame_gap 10
+hc set frame_border_width 0
+hc set frame_gap 6
 hc set frame_padding 0
+hc set smart_frame_surroundings 0
+hc set smart_window_surroundings 0
+hc set window_border_inner_width 0
+hc set window_border_width 1
+hc set window_gap -1
 
-hc set frame_bg_active_color black
-
-hc set mouse_recenter_gap 0
+hc set mouse_recenter_gap 5
 
 hc set always_show_frame 0
 
 hc set focus_stealing_prevention 0
 
+#default colours
+ MOST="#f66"
+ MORE="#668"
+   FG="#888"
+ LESS="#aaa"
+LEAST="#bbb"
+   BG="#d8d8d8"
+
+#system-specific
 COLORS=$( dirname $0 )/$( hostname -s ).colors.sh
 if [[ -f $COLORS ]]; then
   source $COLORS
@@ -150,9 +150,10 @@ hc set window_border_active_color $MORE
 hc set window_border_normal_color $BG
 hc set window_border_urgent_color $MOST
 
+hc set frame_normal_opacity 100
+hc set frame_active_opacity 33
+hc set frame_bg_normal_color $BG
 hc set frame_bg_active_color black
-hc set frame_active_opacity 50
-hc set frame_normal_opacity 0
 
 hc set default_frame_layout 2
 
@@ -173,3 +174,6 @@ for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
     # start it on each monitor
     $panel $monitor &
 done
+
+# unlock, just to be sure
+hc unlock
