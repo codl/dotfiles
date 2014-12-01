@@ -27,4 +27,6 @@ autocutsel -selection PRIMARY -fork &
 
 redshift -l 48:4.1 &
 
+compton --config .compton.conf &
+
 exec ${WM:-herbstluftwm}
