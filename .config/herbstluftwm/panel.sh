@@ -78,18 +78,6 @@ herbstclient pad $monitor $panel_height
     done > >(uniq_linebuffered)  &
     pids+=($!)
 
-    while true; do
-      time=$(tamato)
-      fg=$FG
-      bg=$BG
-      [[ ${time%:*} -le 2 ]] && bg=$FG && fg=$BG
-      [[ $time == "0:00" ]] && bg=$BG && fg=$LESS
-      echo "tamato $SEP^ca(1, tamato -s)^ca(3, tamato -b)^ca(2, tamato -l)^bg($bg)^fg($fg)${SPACING}^r(3x3) $(tamato)$SPACING^ca()^ca()^ca()"
-      sleep 1
-    done > >(uniq_linebuffered) &
-    pids+=($!)
-
-
     if [[ $monitor == 0 ]]; then
         nitrogen --restore
         sleep 2
@@ -149,9 +137,6 @@ herbstclient pad $monitor $panel_height
         if [[ ! -z $batt ]]; then
             echo -n "$batt"
         fi
-        if [[ ! -z $tamato ]]; then
-            echo -n "$tamato"
-        fi
         if [[ $iscurmonitor == true ]]; then
             echo -n "$SEP$SPACING${windowtitle//^/^^}"
         fi
@@ -167,9 +152,6 @@ herbstclient pad $monitor $panel_height
                 ;;
             batt)
                 batt="${cmd[@]:1}"
-                ;;
-            tamato)
-                tamato="${cmd[@]:1}"
                 ;;
             date)
                 #echo "resetting date" >&2
