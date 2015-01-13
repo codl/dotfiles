@@ -44,3 +44,9 @@
   Mod4 + F11
 "mpc next"
   Mod4 + F12
+
+
+"setxkbmap fr -option compose:menu; xmodmap $HOME/.xmodmap"
+  Mod4 + F9
+"setxkbmap us"
+  Mod4 + F8
