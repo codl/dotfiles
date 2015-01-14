@@ -72,7 +72,7 @@ colorscheme jellybeans
 " I never use gvim, but who knows?
 set guioptions=aFi
 set guicursor+=a:blinkon0 " disable cursor blinking
-set guifont=Droid\ Sans\ Mono\ 9
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 
 " split to the right, not to the left
 set splitright
