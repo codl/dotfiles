@@ -18,6 +18,7 @@ plugins=(
     "vimshell#git://github.com/Shougo/vimshell.vim.git"
     "vinegar#git://github.com/tpope/vim-vinegar.git"
     "supertab#git://github.com/ervandew/supertab.git"
+    "mustache-handlebars#git://github.com/mustache/vim-mustache-handlebars.git"
 )
 
 
