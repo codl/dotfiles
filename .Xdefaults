@@ -4,7 +4,7 @@ URxvt.matcher.pattern.1:	\\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 URxvt.matcher.button:	3
 URxvt.perl-ext-common:	default,matcher,font-size
 URxvt.font-size.step: 4
-URxvt.url-launcher: google-chrome-beta
+URxvt.url-launcher: chrome
 URxvt.visualBell:	true
 URxvt.urgentOnBell: true
 URxvt.scrollBar:	false
