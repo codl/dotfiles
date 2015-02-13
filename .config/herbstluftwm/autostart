@@ -30,21 +30,15 @@ for i in ${!TAG_NAMES[@]} ; do
     fi
 done
 
-# cycle through tags
-hc keybind $Mod-comma use_index +1 --skip-visible
-hc keybind $Mod-semicolon  use_index -1 --skip-visible
-hc keybind $Mod-Right use_index +1 --skip-visible
-hc keybind $Mod-Left  use_index -1 --skip-visible
-
 # layouting
-#hc keybind $Mod-r remove
 hc keybind $Mod-space cycle_layout 1
 hc keybind $Mod-u split vertical 0.5
 hc keybind $Mod-o split horizontal 0.5
-hc keybind $Mod-i split horizontal 0.666
+hc keybind $Mod-i split horizontal 0.76
 hc keybind $Mod-t floating toggle
 hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-p pseudotile toggle
+hc keybind $Mod-Escape close_or_remove
 
 # resizing
 RESIZESTEP=0.05
@@ -98,19 +92,18 @@ hc keybind $Mod-Shift-Right shift right
 
 # rules
 hc unrule -F
-#hc rule class=XTerm tag=3 # move all xterms to tag 3
-#hc rule focus=off # normally do not focus new clients
-# give focus to most common terminals
-#hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
-#hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
-#hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
-#hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK)' manage=off
+
+hc rule focus=on
+
+hc rule class~'[Tt]rayer' manage=off
+
+hc rule class~'mednafen' pseudotile=on
+hc rule class~'StepMania' pseudotile=on
+hc rule class~'milkytracker' pseudotile=on
+hc rule class~'obs' pseudotile=on
 
 herbstclient set tree_style '╾│ ├└╼─┐'
 
-# do multi monitor setup here, e.g.:
-# hc set_monitors 1280x1024+0+0 1280x1024+1280+0
-# or simply:
 hc detect_monitors
 
 hc set auto_detect_monitors 1
@@ -156,16 +149,6 @@ hc set frame_bg_normal_color $BG
 hc set frame_bg_active_color black
 
 hc set default_frame_layout 2
-
-hc keybind $Mod-Escape close_or_remove
-
-hc rule focus=on
-
-hc rule class~'[Tt]rayer' manage=off
-
-hc rule class~'mednafen' pseudotile=on
-hc rule class~'StepMania' pseudotile=on
-hc rule class~'milkytracker' pseudotile=on
 
 # find the panel
 panel=~/.config/herbstluftwm/panel.sh
