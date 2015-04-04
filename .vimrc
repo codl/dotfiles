@@ -1,3 +1,6 @@
+set encoding=utf-8
+scriptencoding utf-8
+
 if !isdirectory($HOME. "/.vim/bundle/pathogen")
     ! $HOME/.vim/bundle/fetch.sh
 endif
@@ -103,21 +106,19 @@ set ttimeoutlen=10
 
 if has("autocmd")
     augroup Dispatch
-        au!
+        autocmd!
         autocmd BufNewFile,BufRead *.md set filetype=markdown
         autocmd FileType go let b:dispatch = 'go build'
-        au FileType scss let b:dispatch = 'sass --update %'
-        au FileType ruby let b:dispatch = 'rake'
-        au BufWritePost *[^c][^s][^s].scss Dispatch!
-        au FileType * if !empty(glob("nanoc.yaml"))  | let b:dispatch = 'nanoc' | endif
-        au FileType * if !empty(glob("../nanoc.yaml"))  | let b:dispatch = 'cd ..; nanoc' | endif
+        autocmd FileType scss let b:dispatch = 'sass --update %'
+        autocmd FileType ruby let b:dispatch = 'rake'
+        autocmd BufWritePost *[^c][^s][^s].scss Dispatch!
+        autocmd FileType * if !empty(glob("nanoc.yaml"))  | let b:dispatch = 'nanoc' | endif
+        autocmd FileType * if !empty(glob("../nanoc.yaml"))  | let b:dispatch = 'cd ..; nanoc' | endif
     augroup END
     augroup Stuff
-        au!
+        autocmd!
         autocmd BufNewFile,BufRead /home/codl/dnd/notes/* set sw=2 fdm=indent fml=1 fdl=0
         autocmd BufWritePost /home/codl{/dotfiles,}/.vimrc source /home/codl/.vimrc
-        " jump to last position when opening a file
-        autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
     augroup END
 endif
 
