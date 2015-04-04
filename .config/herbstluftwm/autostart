@@ -101,6 +101,8 @@ hc rule class~'mednafen' pseudotile=on
 hc rule class~'StepMania' pseudotile=on
 hc rule class~'milkytracker' pseudotile=on
 hc rule class~'obs' pseudotile=on
+hc rule class~'Wine' pseudotile=on
+hc rule class~'FLTK' title~'butt' pseudotile=on
 
 herbstclient set tree_style '╾│ ├└╼─┐'
 
