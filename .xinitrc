@@ -17,10 +17,6 @@ export XMODIFIERS=@im=uim
 setxkbmap fr -option compose:menu
 xmodmap $HOME/.xmodmap
 xbindkeys
-{
-    sleep 5
-    keepassx &
-} &
 
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
