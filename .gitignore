@@ -6,3 +6,5 @@ Session.vim
 *~
 .sass-cache/
 node_modules/
+venv
+.venv
