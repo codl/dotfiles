@@ -10,6 +10,7 @@
 [alias]
 	logg = "!. ~/.githelpers && pretty_git_log"
 	lg = !git logg -10
+	lga = !git lg --all
 	pullff = pull --ff-only
 
 [push]
