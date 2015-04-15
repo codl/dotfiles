@@ -4,7 +4,6 @@ plugins=(
     "airline#git://github.com/bling/vim-airline.git"
     "css-color#git://github.com/ap/vim-css-color.git"
     "ctrlp#git://github.com/kien/ctrlp.vim.git"
-    "didyoumean#git://github.com/EinfachToll/DidYouMean.git"
     "dispatch#git://github.com/tpope/vim-dispatch.git"
     "fugitive#git://github.com/tpope/vim-fugitive.git"
     "gitgutter#git://github.com/airblade/vim-gitgutter.git"
