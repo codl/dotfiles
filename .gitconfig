@@ -8,7 +8,8 @@
 	remote = green
 
 [alias]
-	lg = "!. ~/.githelpers && pretty_git_log"
+	logg = "!. ~/.githelpers && pretty_git_log"
+	lg = !git logg -10
 	pullff = pull --ff-only
 
 [push]
@@ -16,5 +17,6 @@
 
 [color]
 	ui = auto
+
 [core]
 	excludesfile = /home/codl/.gitignore
