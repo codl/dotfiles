@@ -9,7 +9,6 @@
 
 [alias]
 	lg = "!. ~/.githelpers && pretty_git_log"
-	logg = log --oneline --graph --decorate
 	pullff = pull --ff-only
 
 [push]
