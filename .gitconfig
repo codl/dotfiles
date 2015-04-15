@@ -8,7 +8,7 @@
 	remote = green
 
 [alias]
-	lg = !git --no-pager log --graph --all -10 --pretty=tformat:'%C(auto)%h%d %s %C(red)%cr%Creset'
+	lg = "!. ~/.githelpers && pretty_git_log"
 	logg = log --oneline --graph --decorate
 	pullff = pull --ff-only
 
