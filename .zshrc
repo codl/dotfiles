@@ -3,6 +3,9 @@
 zstyle ':completion:*' completer _complete _ignored _approximate _prefix
 zstyle :compinstall filename '/home/codl/.zshrc'
 
+# disable XOFF and XON
+unsetopt flowcontrol
+
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
