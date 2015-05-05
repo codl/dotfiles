@@ -31,6 +31,10 @@
     F15
 "true"
     F16
+"true"
+    b:8
+"true"
+    b:9
 
 "xbacklight +10"
     XF86MonBrightnessUp
