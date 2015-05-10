@@ -8,4 +8,4 @@ if [[ $(pgrep -x squid | wc -l) -gt 0 ]]; then
     export https_proxy="http://127.0.0.1:3128"
 fi
 
-[[ $TTY == '/dev/tty1' && $DISPLAY == '' ]] && (startx; exit)
+[[ $TTY == '/dev/tty1' && $DISPLAY == '' ]] && which startx >/dev/null 2>&1 && (startx; exit)
