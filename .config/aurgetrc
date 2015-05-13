@@ -53,7 +53,7 @@ sync_mode='install'
 
 # Where aurget will place temporary working files as needed. This
 # directory is created and cleared when aurget starts.
-temp_directory='/tmp/aurget$UID'
+temp_directory="/tmp/aurget$UID"
 
 # Colors
 colorR="\e[1;31m"
