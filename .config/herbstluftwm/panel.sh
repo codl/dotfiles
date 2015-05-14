@@ -55,7 +55,7 @@ herbstclient pad $monitor $panel_height
     while true ; do
         echo -n "date $SEP$SPACING$(date +"%H:%M %Z")$SPACING"
         echo -n "^fg($LESS)($(TZ=UTC date +"%H %Z"), $(TZ='America/Los_Angeles' date +"%H %Z"), $(TZ=America/New_York date +"%H %Z"))$SPACING$SEP$SPACING"
-        echo    "^fg($LESS)$(date +"%Y-%m-^fg()%d")$SPACING"
+        echo    "^fg($LESS)$(date +"%a %Y-%m-^fg()%d")$SPACING"
         sleep 1 || break
     done > >(uniq_linebuffered)  &
     pids+=($!)
