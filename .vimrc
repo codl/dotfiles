@@ -109,6 +109,8 @@ set winheight=999
 " fast escape out of insert mode
 set ttimeoutlen=10
 
+set cryptmethod=blowfish2 " default is zip, lol
+
 if has("autocmd")
     augroup Dispatch
         autocmd!
