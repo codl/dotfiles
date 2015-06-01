@@ -30,6 +30,8 @@ bindkey ${terminfo[khome]} beginning-of-line
 bindkey ${terminfo[kend]} end-of-line
 bindkey ${terminfo[kdch1]} delete-char
 
+alias ginit='git init'
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 [[ -s "$HOME/.z.sh" ]] && source "$HOME/.z.sh"
