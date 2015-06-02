@@ -1,7 +1,6 @@
-# The following lines were added by compinstall
-
-zstyle ':completion:*' completer _complete _ignored _approximate _prefix
+zstyle ':completion:*' completer _complete _ignored _correct _prefix
 zstyle :compinstall filename '/home/codl/.zshrc'
+zstyle ':completion:*' max-errors 3
 
 # disable XOFF and XON
 unsetopt flowcontrol
