@@ -1,4 +1,4 @@
-enable-mouse = yes
+enable-mouse = no
 
 set-xterm-title = yes
 
