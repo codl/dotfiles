@@ -262,7 +262,7 @@ changeconfig true
 #feed 3h http://proxyfeed.example.com/proxied.rss http_proxy=http://localhost:1234/
 #feed 3h http://dupsfeed.example.com/duplicated.rss allowduplicates=true
 
-feed 3h https://github.com/codl.private.atom?token=315139__eyJzY29wZSI6IkF0b206L2NvZGwucHJpdmF0ZS5hdG9tIiwiZXhwaXJlcyI6Mjk4ODQ4NjcyNX0=--67cfcf8ca5b164b623a0c2480316d07c1b14c10d
+feed 3h https://github.com/codl.private.atom?token=AATPA_vaEgbwrygTzg60qdO_I_ILW11Zks6zjuACwA==
 feed 1d http://abstrusegoose.com/feed.xml
 feed 3h http://awkwardzombie.com/awkward.php
 feed 6h http://www.beyondthecanopy.com/feed/
@@ -286,7 +286,6 @@ feed 3h http://www.windytan.com/feeds/posts/default
 feed 3h https://blog.twitter.com/api/blog.rss?name=engineering
 feed 3h https://www.archlinux.org/feeds/news/
 feed 3h https://www.laquadrature.net/en/rss.xml
-feed 3h http://www.discordcomics.com/feed/
 feed 3h http://www.qwantz.com/rssfeed.php
 feed 3h http://magicalgametime.com/rss
 feed 3h http://www.depressioncomix.com/feed/
