@@ -90,8 +90,8 @@ map <right> <nop>
 nnoremap <leader>; <C-^>
 
 " quick scroll
-nnoremap à 10k
-nnoremap ç 10j
+noremap à 10k
+noremap ç 10j
 
 set listchars=nbsp:␣,tab:\|\ ,trail:␣,extends:>,precedes:<
 set list
