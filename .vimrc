@@ -93,11 +93,6 @@ nnoremap <leader>; <C-^>
 nnoremap à 10k
 nnoremap ç 10j
 
-" incsearch.vim
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
 set listchars=nbsp:␣,tab:\|\ ,trail:␣,extends:>,precedes:<
 set list
 
