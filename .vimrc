@@ -70,7 +70,8 @@ set scrolloff=2 " start scrolling 3 lines before window border
 
 set diffopt+=vertical " why the fuck would you want horizontal diff
 
-colorscheme jellybeans
+set background=dark
+colorscheme solarized
 
 " I never use gvim, but who knows?
 set guioptions=aFi

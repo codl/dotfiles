@@ -19,6 +19,7 @@ plugins=(
     "vimproc#git://github.com/Shougo/vimproc.vim.git"
     "vimshell#git://github.com/Shougo/vimshell.vim.git"
     "vinegar#git://github.com/tpope/vim-vinegar.git"
+    "solarized#git://github.com/altercation/vim-colors-solarized"
 )
 
 
