@@ -106,6 +106,7 @@ hc rule class~'FLTK' title~'butt' pseudotile=on
 hc rule class~'Chrome' windowrole~'pop-up' pseudotile=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' pseudotile=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_SPLASH' pseudotile=on
+hc rule class~'uplink.*' pseudotile=on
 
 herbstclient set tree_style '╾│ ├└╼─┐'
 
