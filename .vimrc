@@ -120,7 +120,6 @@ if has("autocmd")
     augroup END
     augroup Stuff
         autocmd!
-        autocmd BufNewFile,BufRead /home/codl/dnd/notes/* set sw=2 fdm=indent fml=1 fdl=0
         autocmd BufWritePost /home/codl{/dotfiles,}/.vimrc source /home/codl/.vimrc
     augroup END
 endif
