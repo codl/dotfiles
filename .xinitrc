@@ -5,11 +5,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
     unset f
 fi
 
-export GTK_IM_MODULE=uim
-export QT_IM_MODULE=uim
-uim-xim &
-uim-toolbar-gtk-systray &
-export XMODIFIERS=@im=uim
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+ibus-daemon -drx
 
 [[ -f $HOME/.xrandr.sh ]] && source $HOME/.xrandr.sh
 [[ -f $HOME/.xinput.sh ]] && source $HOME/.xinput.sh
