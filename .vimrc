@@ -98,9 +98,6 @@ set listchars=nbsp:␣,tab:\|\ ,trail:␣,extends:>,precedes:<
 set list
 
 set winwidth=80
-set winheight=10
-set winminheight=10
-set winheight=999
 
 " fast escape out of insert mode
 set ttimeoutlen=10
