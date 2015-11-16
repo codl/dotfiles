@@ -8,7 +8,6 @@ fi
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
-ibus-daemon -drx
 
 [[ -f $HOME/.xrandr.sh ]] && source $HOME/.xrandr.sh
 [[ -f $HOME/.xinput.sh ]] && source $HOME/.xinput.sh
@@ -23,5 +22,11 @@ autocutsel -selection PRIMARY -fork &
 redshift -l 48:4.1 &
 
 compton --config .compton.conf &
+
+(
+    sleep 5
+    dropbox &
+    ibus-daemon -drx
+)&
 
 exec ${WM:-herbstluftwm}
