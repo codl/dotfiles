@@ -1,0 +1,27 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1448443758321795-2</unique-id>
+	<command>cd %f; st</command>
+	<description>Opens st</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>calligrakrita</icon>
+	<name>Krita-render</name>
+	<unique-id>1448443972691105-4</unique-id>
+	<command>cd %d; st bash krita-render</command>
+	<description>Runs krita-render</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+</actions>
