@@ -1,3 +1,4 @@
 player=mpv
 player-args=--loop=inf {filename}
 default-stream=best
+player-no-close
