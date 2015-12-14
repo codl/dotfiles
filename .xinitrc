@@ -29,4 +29,6 @@ compton --config .compton.conf &
     ibus-daemon -drx
 )&
 
+x11vnc -rfbauth ~/.x11vnc/passwd -display $DISPLAY -forever -o /dev/null -bg
+
 exec ${WM:-herbstluftwm}
