@@ -15,6 +15,7 @@ export QT_IM_MODULE=ibus
 setxkbmap fr -option compose:menu
 xmodmap $HOME/.xmodmap
 xbindkeys
+xset s off
 
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
