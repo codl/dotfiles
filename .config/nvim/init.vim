@@ -1,7 +1,7 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-if !isdirectory($HOME. "/.vim/bundle/pathogen")
+if !isdirectory($HOME. "/.config/nvim/bundle/pathogen")
     ! $HOME/.vim/bundle/fetch.sh
 endif
 runtime bundle/pathogen/autoload/pathogen.vim
@@ -10,7 +10,6 @@ execute pathogen#infect()
 set nocompatible
 
 set mouse=a
-set ttymouse=xterm2 " screen sucks
 
 filetype plugin indent on
 syntax on
@@ -102,8 +101,6 @@ set winwidth=80
 " fast escape out of insert mode
 set ttimeoutlen=10
 
-set cryptmethod=blowfish2 " default is zip, lol
-
 if has("autocmd")
     augroup Dispatch
         autocmd!
@@ -114,10 +111,6 @@ if has("autocmd")
         autocmd BufWritePost *[^c][^s][^s].scss Dispatch!
         autocmd FileType * if !empty(glob("nanoc.yaml"))  | let b:dispatch = 'nanoc' | endif
         autocmd FileType * if !empty(glob("../nanoc.yaml"))  | let b:dispatch = 'cd ..; nanoc' | endif
-    augroup END
-    augroup Stuff
-        autocmd!
-        autocmd BufWritePost /home/codl{/dotfiles,}/.vimrc source /home/codl/.vimrc
     augroup END
 endif
 

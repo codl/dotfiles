@@ -30,7 +30,7 @@ for plugin in ${plugins[*]}; do
     repository=${plugin[1]}
     subdir=${plugin[2]}
 
-    cd ~/.vim/bundle/
+    cd ~/.config/nvim/bundle/
 
     echo
     echo "Fetching $name"
@@ -52,7 +52,7 @@ for plugin in ${plugins[*]}; do
     fi
 
     if [[ -n $subdir ]]; then
-        cd ~/.vim/bundle/
+        cd ~/.config/nvim/bundle/
         rsync -a /tmp/$name/$subdir/ $name
     fi
 done

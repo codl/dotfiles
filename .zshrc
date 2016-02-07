@@ -32,6 +32,7 @@ bindkey ${terminfo[kdch1]} delete-char
 alias ginit='git init'
 
 alias mvp='echo my mvp is mpv; mpv'
+alias vim='nvim'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
