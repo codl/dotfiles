@@ -1,0 +1,9 @@
+packages: [
+  "advanced-open-file"
+  "file-icons"
+  "git-time-machine"
+  "metrics"
+  "package-sync"
+  "project-jump"
+  "project-view"
+]

@@ -1,0 +1,43 @@
+"*":
+  "advanced-open-file": {}
+  "bracket-matcher":
+    autocompleteBrackets: false
+    autocompleteSmartQuotes: false
+  core:
+    audioBeep: false
+    autoHideMenuBar: true
+    disabledPackages: [
+      "open-on-github"
+      "sync-settings"
+    ]
+    followSymlinks: true
+    openEmptyEditorOnStart: false
+    projectHome: "/home/codl/dev/"
+  editor:
+    fontFamily: "Liberation Mono"
+    invisibles:
+      eol: "↵"
+      space: "␣"
+      tab: "|"
+    scrollPastEnd: true
+    showInvisibles: true
+    tabLength: 4
+  "exception-reporting":
+    userId: "6c4beb89-5c1a-5d86-b374-45074ab02fef"
+  "file-icons":
+    coloured: false
+    tabPaneIcon: false
+  "fuzzy-finder": {}
+  "one-dark-ui": {}
+  "package-sync":
+    forceOverwrite: true
+  "spell-check": {}
+  "sync-settings":
+    _analyticsUserId: "d4a3acd9-203b-498d-98e9-b6b6e88d56df"
+  tabs:
+    enableVcsColoring: true
+    usePreviewTabs: true
+  "tidy-tabs":
+    runOnSave: true
+  welcome:
+    showOnStartup: false
