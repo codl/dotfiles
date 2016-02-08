@@ -2,7 +2,7 @@ set encoding=utf-8
 scriptencoding utf-8
 
 if !isdirectory($HOME. "/.config/nvim/bundle/pathogen")
-    ! $HOME/.vim/bundle/fetch.sh
+    ! $HOME/.config/nvim/bundle/fetch.sh
 endif
 runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
