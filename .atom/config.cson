@@ -1,5 +1,4 @@
 "*":
-  "advanced-open-file": {}
   "bracket-matcher":
     autocompleteBrackets: false
     autocompleteSmartQuotes: false
@@ -8,7 +7,6 @@
     autoHideMenuBar: true
     disabledPackages: [
       "open-on-github"
-      "sync-settings"
       "welcome"
     ]
     followSymlinks: true
@@ -29,15 +27,10 @@
   "file-icons":
     coloured: false
     tabPaneIcon: false
-  "fuzzy-finder": {}
-  "one-dark-ui": {}
   "open-terminal-here":
     command: "st"
   "package-sync":
     forceOverwrite: true
-  "spell-check": {}
-  "sync-settings":
-    _analyticsUserId: "d4a3acd9-203b-498d-98e9-b6b6e88d56df"
   tabs:
     enableVcsColoring: true
     usePreviewTabs: true

@@ -2,6 +2,7 @@ export PATH="$HOME/bin:$PATH"
 export EDITOR="nvim"
 export PAGER="most"
 export MPD_MUSIC_DIR="$HOME/music"
+export VISUAL="atom -w"
 
 if [[ -f ~/.profile.credentials ]]; then
     source ~/.profile.credentials

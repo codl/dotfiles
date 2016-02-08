@@ -1,7 +1,10 @@
 packages: [
   "advanced-open-file"
+  "build"
+  "build-gulp"
   "file-icons"
   "git-time-machine"
+  "language-nginx"
   "metrics"
   "open-terminal-here"
   "package-sync"
