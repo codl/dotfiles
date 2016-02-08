@@ -1,0 +1,28 @@
+[Default Applications]
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-N9UGVX.desktop
+message/rfc822=userapp-Thunderbird-N9UGVX.desktop
+application/x-extension-eml=userapp-Thunderbird-N9UGVX.desktop
+image/png=geeqie.desktop
+image/gif=google-chrome.desktop
+application/pdf=zathura-pdf-mupdf.desktop
+
+[Added Associations]
+text/plain=gvim.desktop;
+audio/x-vorbis+ogg=mpv.desktop;
+text/x-log=gvim.desktop;
+image/jpeg=geeqie.desktop;
+video/mp4=mpv.desktop;
+image/png=geeqie.desktop;kde4-krita_png.desktop;krita_png.desktop;
+audio/x-wav=mpv.desktop;
+audio/mpeg=mpv.desktop;
+video/webm=mpv.desktop;
+video/x-matroska=mpv.desktop;
+audio/flac=mpv.desktop;
+application/x-krita=krita.desktop;
+image/gif=google-chrome.desktop;gimp.desktop;
+text/html=google-chrome.desktop;
+application/pdf=zathura-pdf-mupdf.desktop;
+application/zip=xarchiver.desktop;
+application/x-shellscript=gvim.desktop;
