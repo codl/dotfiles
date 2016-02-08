@@ -3,7 +3,9 @@ packages: [
   "file-icons"
   "git-time-machine"
   "metrics"
+  "open-terminal-here"
   "package-sync"
   "project-jump"
   "project-view"
+  "tidy-tabs"
 ]

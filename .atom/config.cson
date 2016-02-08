@@ -17,9 +17,10 @@
     fontFamily: "Liberation Mono"
     invisibles:
       eol: "↵"
-      space: "␣"
+      space: " "
       tab: "|"
     scrollPastEnd: true
+    showIndentGuide: true
     showInvisibles: true
     tabLength: 4
   "exception-reporting":
@@ -29,6 +30,8 @@
     tabPaneIcon: false
   "fuzzy-finder": {}
   "one-dark-ui": {}
+  "open-terminal-here":
+    command: "st"
   "package-sync":
     forceOverwrite: true
   "spell-check": {}
@@ -38,6 +41,7 @@
     enableVcsColoring: true
     usePreviewTabs: true
   "tidy-tabs":
+    minimumTabs: 2
     runOnSave: true
   welcome:
     showOnStartup: false
