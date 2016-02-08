@@ -7,4 +7,4 @@
     'alt-p a': 'project-jump:add'
     'alt-p r': 'project-jump:remove'
 
-  'ctrl-shift-W': 'tabs:close-saved-tabs'
+    'ctrl-shift-W': 'tabs:close-saved-tabs'
