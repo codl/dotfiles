@@ -9,6 +9,7 @@
     disabledPackages: [
       "open-on-github"
       "sync-settings"
+      "welcome"
     ]
     followSymlinks: true
     openEmptyEditorOnStart: false
