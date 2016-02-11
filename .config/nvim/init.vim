@@ -106,9 +106,7 @@ if has("autocmd")
         autocmd!
         autocmd BufNewFile,BufRead *.md set filetype=markdown
         autocmd FileType go let b:dispatch = 'go build'
-        autocmd FileType scss let b:dispatch = 'sass --update %'
         autocmd FileType ruby let b:dispatch = 'rake'
-        autocmd BufWritePost *[^c][^s][^s].scss Dispatch!
         autocmd FileType * if !empty(glob("nanoc.yaml"))  | let b:dispatch = 'nanoc' | endif
         autocmd FileType * if !empty(glob("../nanoc.yaml"))  | let b:dispatch = 'cd ..; nanoc' | endif
     augroup END
