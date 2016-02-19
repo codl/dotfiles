@@ -28,6 +28,7 @@ compton --config .compton.conf &
     sleep 5
     dropbox &
     ibus-daemon -drx
+    selfspy -p=
 )&
 
 x11vnc -rfbauth ~/.x11vnc/passwd -display $DISPLAY -forever -o /dev/null -bg
