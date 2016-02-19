@@ -2,3 +2,5 @@ loop=inf
 framedrop=decoder+vo
 cache-default=100000
 screenshot-directory=/home/codl/Dropbox/images/screenshots
+[pseudo-gui]
+screenshot-directory=/home/codl/Dropbox/images/screenshots
