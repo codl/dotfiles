@@ -56,4 +56,4 @@ for plugin in ${plugins[*]}; do
     fi
 done
 
-vim "+Helptags" "+q"
+nvim "+Helptags" "+q"
