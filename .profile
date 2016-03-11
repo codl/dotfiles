@@ -1,4 +1,4 @@
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$PATH:$(ruby -rubygems -e "puts Gem.user_dir")/bin"
 export EDITOR="nvim"
 export PAGER="most"
 export MPD_MUSIC_DIR="$HOME/music"
