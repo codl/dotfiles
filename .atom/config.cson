@@ -19,8 +19,7 @@
     openEmptyEditorOnStart: false
     projectHome: "/home/codl/dev/"
   editor:
-    fontFamily: "Liberation Mono"
-    fontSize: 15
+    fontFamily: "Fira Code"
     invisibles:
       eol: "↵"
       space: " "
