@@ -2,7 +2,6 @@ export PATH="$HOME/bin:$PATH:$(ruby -rubygems -e "puts Gem.user_dir")/bin"
 export EDITOR="nvim"
 export PAGER="most"
 export MPD_MUSIC_DIR="$HOME/music"
-export VISUAL="atom -w"
 
 if [[ -f ~/.profile.credentials ]]; then
     source ~/.profile.credentials
