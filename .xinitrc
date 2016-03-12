@@ -33,4 +33,4 @@ compton --config .compton.conf &
 
 x11vnc -rfbauth ~/.x11vnc/passwd -display $DISPLAY -forever -o /dev/null -bg
 
-exec ${WM:-herbstluftwm}
+exec ${WM:-startxfce4}
