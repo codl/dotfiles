@@ -12,11 +12,6 @@
 "amixer -c 0 sset Master 2%+"
   Mod4 + b:4
 
-"st"
-  Mod4+w
-"dmenu_run"
-  Mod4 + x
-
 "sscrot"
   Print
 "sscrot -s"
@@ -33,12 +28,6 @@
     b:8
 "true"
     b:9
-
-"xbacklight +10"
-    XF86MonBrightnessUp
-
-"xbacklight -10"
-    XF86MonBrightnessDown
 
 "mpc prev"
   Mod4 + F10
