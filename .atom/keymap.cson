@@ -8,3 +8,9 @@
     'alt-p r': 'project-jump:remove'
 
     'ctrl-shift-W': 'tabs:close-saved-tabs'
+
+'atom-workspace':
+    'ctrl-alt-v': 'svg-preview:toggle'
+
+'.platform-linux atom-workspace':
+    'ctrl-alt-t': 'open-terminal-here:open'
