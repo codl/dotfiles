@@ -25,10 +25,12 @@ redshift -l 48:4.1 &
 compton --config .compton.conf &
 
 (
-    sleep 5
-    dropbox &
+    rm ~/.selfspy/selfspy.pid.lock; selfspy -p= &
+    sleep 8
     ibus-daemon -drx
-    selfspy -p=
+    telegram &
+    gajim &
+    syncthing-gtk &
 )&
 
 x11vnc -rfbauth ~/.x11vnc/passwd -display $DISPLAY -forever -o /dev/null -bg
