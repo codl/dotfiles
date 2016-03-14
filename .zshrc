@@ -17,10 +17,13 @@ setopt extendedglob
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
-PS1="%F{white}%S%1>>%n%<<@%1>>%m%<< %2~%s%F{black}%B$%b%f "
-if [[ ! -z $SSH_CONNECTION ]]; then
-    PS1="%F{green}%S%1>>%n%<<@%1>>%m%<< %2~%s%F{black}%B$%b%f "
-fi
+ps1_colors=(green cyan yellow blue magenta)
+col_num=$[16#$(hostname | md5sum | head -c15) % ${#ps1_colors} + 1]
+ps1_color=$ps1_colors[$col_num]
+
+PS1="%F{${ps1_color}}%S%3>>%m%<< %2~%s%F{black}%B$%b%f "
+
+unset ps1_colors ps1_color col_num
 
 bindkey "\e[A" up-line-or-search
 bindkey "\e[B" down-line-or-search

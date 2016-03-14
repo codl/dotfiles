@@ -1,4 +1,7 @@
 "*":
+  "autocomplete-plus":
+    confirmCompletion: "tab"
+    includeCompletionsFromAllBuffers: false
   "bracket-matcher":
     autocompleteBrackets: false
     autocompleteSmartQuotes: false
@@ -8,6 +11,9 @@
     disabledPackages: [
       "open-on-github"
       "welcome"
+      "spell-check"
+      "build"
+      "build-gulp"
     ]
     followSymlinks: true
     openEmptyEditorOnStart: false
@@ -19,7 +25,7 @@
       space: " "
       tab: "|"
     scrollPastEnd: true
-    showIndentGuide: true
+    showIndentGuide: false
     showInvisibles: true
     tabLength: 4
   "exception-reporting":
@@ -27,10 +33,14 @@
   "file-icons":
     coloured: false
     tabPaneIcon: false
+  "markdown-preview": {}
   "open-terminal-here":
     command: "st"
   "package-sync":
     forceOverwrite: true
+  "spell-check": {}
+  "svg-preview":
+    openPreviewAutomatically: true
   tabs:
     enableVcsColoring: true
     usePreviewTabs: true
