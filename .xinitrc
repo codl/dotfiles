@@ -26,9 +26,8 @@ compton --config .compton.conf &
 
 (
     rm ~/.selfspy/selfspy.pid.lock; selfspy -p= &
-    sleep 8
+    sleep 10
     ibus-daemon -drx
-    telegram &
     gajim &
     syncthing-gtk &
 )&
