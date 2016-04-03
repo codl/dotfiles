@@ -29,12 +29,6 @@
 "true"
     b:9
 
-"xbacklight +10"
-    XF86MonBrightnessUp
-
-"xbacklight -10"
-    XF86MonBrightnessDown
-
 "mpc prev"
   Mod4 + F10
 "mpc toggle"
