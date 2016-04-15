@@ -1,4 +1,10 @@
 "*":
+  "activate-power-mode":
+    particles:
+      size: {}
+      spawnCount: {}
+      totalCount: {}
+    screenShake: {}
   "autocomplete-plus":
     confirmCompletion: "tab"
     includeCompletionsFromAllBuffers: false
@@ -14,6 +20,8 @@
       "spell-check"
       "build"
       "build-gulp"
+      "linter-pep8"
+      "linter-tidy"
     ]
     followSymlinks: true
     openEmptyEditorOnStart: false
@@ -33,11 +41,20 @@
   "file-icons":
     coloured: false
     tabPaneIcon: false
+  "git-plus": {}
+  linter: {}
+  "linter-tidy": {}
   "markdown-preview": {}
+  minimap:
+    displayPluginsControls: false
+    scrollAnimation: true
   "open-terminal-here":
-    command: "st"
+    command: "xfce4-terminal"
   "package-sync":
     forceOverwrite: true
+  pigments:
+    markerType: "underline"
+    mergeColorDuplicates: true
   "spell-check": {}
   "svg-preview":
     openPreviewAutomatically: true
