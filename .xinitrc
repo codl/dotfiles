@@ -30,6 +30,6 @@ redshift -l 48:4.1 &
     syncthing-gtk &
 )&
 
-x11vnc -rfbauth ~/.x11vnc/passwd -display $DISPLAY -forever -o /dev/null -bg
+x11vnc -rfbauth ~/.x11vnc/passwd -display $DISPLAY -forever -o /dev/null -bg -nobell
 
 exec ${WM:-startxfce4}
