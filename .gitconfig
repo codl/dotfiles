@@ -23,3 +23,5 @@
 
 [core]
 	excludesfile = /home/codl/.gitignore
+[commit]
+	gpgSign = true
