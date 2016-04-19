@@ -1,6 +1,11 @@
 loop=inf
 framedrop=decoder+vo
 cache-default=100000
+save-position-on-quit
+
+vo=opengl-hq
+
 screenshot-directory=/home/codl/images/screenshots
+
 [pseudo-gui]
 screenshot-directory=/home/codl/images/screenshots
