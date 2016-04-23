@@ -11,6 +11,7 @@
   "bracket-matcher":
     autocompleteBrackets: false
     autocompleteSmartQuotes: false
+  build: {}
   core:
     audioBeep: false
     autoHideMenuBar: true
@@ -18,10 +19,10 @@
       "open-on-github"
       "welcome"
       "spell-check"
-      "build"
-      "build-gulp"
       "linter-pep8"
       "linter-tidy"
+      "linter"
+      "linter-syntax-python"
     ]
     followSymlinks: true
     openEmptyEditorOnStart: false
