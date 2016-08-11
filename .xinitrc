@@ -23,11 +23,10 @@ autocutsel -selection PRIMARY -fork &
 redshift -l 48:4.1 &
 
 (
-    rm ~/.selfspy/selfspy.pid.lock; selfspy -p= &
     sleep 10
     ibus-daemon -drx
-    gajim &
     syncthing-gtk &
+    [[ -e /bin/sonata ]] && sonata --hidden
 )&
 
 x11vnc -rfbauth ~/.x11vnc/passwd -display $DISPLAY -forever -o /dev/null -bg -nobell
