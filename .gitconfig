@@ -25,3 +25,5 @@
 	excludesfile = /home/codl/.gitignore
 [commit]
 	gpgSign = true
+[rebase]
+	autoStash = true
