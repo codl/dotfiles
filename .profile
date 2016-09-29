@@ -6,6 +6,8 @@ export EDITOR="nvim"
 export PAGER="most"
 export MPD_MUSIC_DIR="$HOME/music"
 
+export STEAM_RUNTIME=0
+
 if [[ -f ~/.profile.credentials ]]; then
     source ~/.profile.credentials
 fi
