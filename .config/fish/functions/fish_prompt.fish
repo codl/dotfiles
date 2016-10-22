@@ -9,5 +9,7 @@ function fish_prompt
         set -U __fish_prompt_colour $colours[(math $host_hash%(count $colours)+1)]
     end
 
+    telemetry fish-prompt
+
     echo -n -s (set_color $__fish_prompt_colour) (set_reverse) $__fish_prompt_shortened_hostname " " (prompt_pwd) (set_reverse) (set_color normal) (__prompt_trailing) " "
 end
