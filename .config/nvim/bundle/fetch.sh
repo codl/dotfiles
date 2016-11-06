@@ -1,8 +1,6 @@
 #!/bin/bash
 
 plugins=(
-    "airline#git://github.com/vim-airline/vim-airline.git"
-    "airline-themes#git://github.com/vim-airline/vim-airline-themes.git"
     "css-color#git://github.com/ap/vim-css-color.git"
     "ctrlp#git://github.com/kien/ctrlp.vim.git"
     "dispatch#git://github.com/tpope/vim-dispatch.git"
