@@ -4,7 +4,7 @@ if [[ -e /bin/ruby ]]; then
 fi
 export EDITOR="nvim"
 export PAGER="most"
-export MPD_MUSIC_DIR="$HOME/music"
+export MPD_MUSIC_DIR="$HOME/media/music"
 
 if [[ -f ~/.profile.credentials ]]; then
     source ~/.profile.credentials
