@@ -1,6 +1,6 @@
 function fish_prompt
 	if not set -q __fish_prompt_shortened_hostname
-        set -g __fish_prompt_shortened_hostname (hostname -s|head -c 3)
+        set -g __fish_prompt_shortened_hostname (hostname -s|head -c 4)
     end
 
     if not set -q __fish_prompt_colour
