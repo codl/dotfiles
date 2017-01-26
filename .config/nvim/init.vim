@@ -113,6 +113,7 @@ if has("autocmd")
 endif
 
 nnoremap <leader>k :Dispatch<CR>
+nnoremap <leader>j :Dispatch!<CR>
 nnoremap <leader>K :Dispatch
 
 let g:ctrlp_map = ';;'
