@@ -1,6 +1,0 @@
- MOST="#d5d"
- MORE="#668"
-   FG="#888"
- LESS="#aaa"
-LEAST="#bbb"
-   BG="#d8d8d8"
