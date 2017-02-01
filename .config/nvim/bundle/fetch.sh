@@ -2,7 +2,7 @@
 
 plugins=(
     "css-color#git://github.com/ap/vim-css-color.git"
-    "ctrlp#git://github.com/kien/ctrlp.vim.git"
+    "ctrlp#git://github.com/ctrlpvim/ctrlp.vim.git"
     "dispatch#git://github.com/tpope/vim-dispatch.git"
     "dispatch-neovim#https://github.com/radenling/vim-dispatch-neovim.git"
     "fugitive#git://github.com/tpope/vim-fugitive.git"
