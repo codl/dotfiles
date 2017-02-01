@@ -110,6 +110,10 @@ if has("autocmd")
         autocmd FileType * if !empty(glob("nanoc.yaml"))  | let b:dispatch = 'nanoc' | endif
         autocmd FileType * if !empty(glob("../nanoc.yaml"))  | let b:dispatch = 'cd ..; nanoc' | endif
     augroup END
+    augroup Filetypes
+        autocmd!
+        autocmd BufNewFile,BufRead *.p8 set noexpandtab
+    augroup END
 endif
 
 nnoremap <leader>k :Dispatch<CR>
