@@ -42,7 +42,9 @@
   "file-icons":
     coloured: false
     tabPaneIcon: false
-  "git-plus": {}
+  "git-plus":
+    general:
+      _analyticsUserId: "92b6bfb9-736b-459f-876d-aa67a70f0840"
   linter: {}
   "linter-tidy": {}
   "markdown-preview": {}
