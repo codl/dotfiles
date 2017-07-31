@@ -13,3 +13,4 @@ __pycache__
 .stversions
 .stignore
 credentials
+credentials.env
