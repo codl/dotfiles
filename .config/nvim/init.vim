@@ -123,5 +123,6 @@ nnoremap <leader>K :Dispatch
 let g:ctrlp_map = ';;'
 nnoremap ;, :CtrlPMRUFiles<CR>
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_max_files = 100000
 
 set updatetime=1000
