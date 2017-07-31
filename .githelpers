@@ -20,7 +20,7 @@ AUTHOR="%an"
 REFS="%C(red)%d%Creset"
 SUBJECT="%s"
 
-FORMAT="$HASH}$RELATIVE_TIME}<$SIGNED$AUTHOR>}$REFS $SUBJECT"
+FORMAT="$HASH}$RELATIVE_TIME}<$AUTHOR>$SIGNED}$REFS $SUBJECT"
 
 ANSI_BLACK='\033[30m'
 ANSI_BLACK_BOLD='\033[0;30;1m'
@@ -53,17 +53,17 @@ pretty_git_log() {
         # Replace (2 years, 5 months) with (2 years)
         sed -Ee 's/(^[^<]*), [[:digit:]]+ .*months?\)/\1)/' |
         # Line columns up based on } delimiter
-        column -s '}' -t |
+        #column -s '}' -t |
+        sed -Ee "s/}/\t/g" |
         # Color merge commits specially
         sed -Ee "s/(Merge (branch|remote-tracking branch|pull request) .*$)/$(printf $ANSI_YELLOW)\1$(printf $ANSI_RESET)/" |
         # show gpg signature indicator
-        sed -Ee "s/\{sign[BN]//;s/\{signG/$(printf $ANSI_BLUE_BOLD)🔒 $(printf $ANSI_RESET)/;s/\{signU/🔒 /" |
+        sed -Ee "s/>\{sign[BN]/>/;s/>\{signG/$(printf $ANSI_BLUE_BOLD)🔒$(printf $ANSI_RESET)/;s/>\{signU/🔒/" |
         # Page only if we're asked to.
         if [ -n "$GIT_NO_PAGER" ]; then
             cat
         else
-            # Page only if needed.
-            less --quit-if-one-screen --no-init --RAW-CONTROL-CHARS --chop-long-lines
+            cat
         fi
 }
 
