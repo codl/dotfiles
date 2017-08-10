@@ -28,3 +28,6 @@
 	gpgSign = true
 [rebase]
 	autoStash = true
+
+[merge]
+	ff = only
