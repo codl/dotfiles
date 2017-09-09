@@ -127,3 +127,6 @@ let g:ctrlp_max_files = 100000
 let g:ctrlp_user_command = ['.git', 'cd %s; git ls-files']
 
 set updatetime=1000
+
+let g:ackprg = 'ag --vimgrep'
+command -nargs=* Ag Ack <args>

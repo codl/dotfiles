@@ -21,6 +21,7 @@ plugins=(
     "vinegar#git://github.com/tpope/vim-vinegar.git"
     "pico8-syntax#https://github.com/codl/vim-pico8-syntax.git"
     "fish#https://github.com/dag/vim-fish.git"
+    "ack#https://github.com/mileszs/ack.vim.git"
 )
 
 
