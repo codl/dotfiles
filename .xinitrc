@@ -11,7 +11,6 @@ export QT_IM_MODULE=ibus
 
 [[ -f $HOME/.xrandr.sh ]] && source $HOME/.xrandr.sh
 [[ -f $HOME/.xinput.sh ]] && (sleep 5; bash $HOME/.xinput.sh) &
-[[ -f $HOME/.xmodmap ]] && (sleep 5; xmodmap $HOME/.xmodmap) &
 
 setxkbmap fr -option compose:menu
 xbindkeys
@@ -24,6 +23,7 @@ redshift -l 48:4.1 &
 
 (
     sleep 10
+    [[ -f $HOME/.xmodmap ]] && xmodmap $HOME/.xmodmap
     ibus-daemon -drx
     syncthing-gtk &
     [[ -e /bin/sonata ]] && sonata --hidden
