@@ -1,4 +1,4 @@
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 if [[ -e /bin/ruby ]]; then
     export PATH="$PATH:$(/bin/ruby -rubygems -e "puts Gem.user_dir")/bin"
 fi
