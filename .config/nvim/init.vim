@@ -126,6 +126,8 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_files = 100000
 let g:ctrlp_user_command = ['.git', 'cd %s; git ls-files']
 
+let g:syntastic_javascript_checkers = ['eslint']
+
 set updatetime=1000
 
 let g:ackprg = 'ag --vimgrep'
