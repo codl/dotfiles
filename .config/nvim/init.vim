@@ -1,11 +1,27 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-if !isdirectory($HOME. "/.config/nvim/bundle/pathogen")
-    ! $HOME/.config/nvim/bundle/fetch.sh
-endif
-runtime bundle/pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'dietsche/vim-lastplace'
+Plug 'tpope/vim-sleuth'
+
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-vinegar'
+
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+Plug 'scrooloose/syntastic'
+
+Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
+Plug 'mileszs/ack.vim', { 'on': 'Ack' }
+
+Plug 'ap/vim-css-color'
+
+Plug 'dag/vim-fish'
+
+call plug#end()
 
 set nocompatible
 
