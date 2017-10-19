@@ -63,8 +63,8 @@ set tw=0
 
 set history=100
 set undolevels=1000
-set undodir=~/.vim/undo " persistent undo
-set undofile            " ^
+set undodir=~/.config/nvim/undo " persistent undo
+set undofile                    " ^
 
 set wildignore=*.bak,*.pyc,*.class,*.o,*.d
 set wildignore+=*/venv/*,*/.git/*
