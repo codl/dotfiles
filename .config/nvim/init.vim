@@ -12,6 +12,9 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+
 Plug 'scrooloose/syntastic'
 
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
@@ -148,3 +151,9 @@ set updatetime=1000
 
 let g:ackprg = 'ag --vimgrep'
 command -nargs=* Ag Ack <args>
+
+let g:deoplete#enable_at_startup = 1
+
+" use tab key for navigating completions
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
