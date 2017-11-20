@@ -29,6 +29,6 @@ redshift -l 48:4.1 &
     [[ -e /bin/sonata ]] && sonata --hidden
 )&
 
-x11vnc -rfbauth ~/.x11vnc/passwd -display $DISPLAY -forever -o /dev/null -bg -nobell
+x11vnc -usepw -display $DISPLAY -N -forever -o /dev/null -bg -nobell -ncache 10
 
 exec ${WM:-startxfce4}
