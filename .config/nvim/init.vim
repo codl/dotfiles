@@ -24,6 +24,8 @@ Plug 'ap/vim-css-color'
 
 Plug 'dag/vim-fish'
 
+Plug 'jkramer/vim-checkbox'
+
 call plug#end()
 
 set nocompatible
