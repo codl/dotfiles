@@ -146,6 +146,7 @@ nnoremap ;, :CtrlPMRUFiles<CR>
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_files = 100000
 let g:ctrlp_user_command = ['.git', 'cd %s; git ls-files']
+let g:ctrlp_root_markers = ['.stfolder']
 
 let g:syntastic_javascript_checkers = ['eslint']
 
