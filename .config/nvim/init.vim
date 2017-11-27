@@ -163,3 +163,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 let g:netrw_sort_by = 'time'
 let g:netrw_sort_direction = 'reverse'
+
+tnoremap <A-e> <C-\><C-n>
+tnoremap <C-w><C-w> <C-\><C-n><C-w><C-w>
+
