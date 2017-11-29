@@ -6,8 +6,8 @@ Session.vim
 *~
 .sass-cache/
 node_modules/
-venv
-.venv
+venv*
+.venv*
 __pycache__
 .stfolder
 .stversions
