@@ -26,7 +26,7 @@ function clip()
     length = loopb - loopa
 
     abr = 7*8*1000 / length
-    abr = min(abr, 1000)
+    abr = math.min(abr, 1000)
     abr_video = abr - 128
 
     maybe_resize = {}
@@ -42,7 +42,7 @@ function clip()
             '-b:v', abr_video .. 'k', '-b:a', '128k'
     }
     more_args = {
-        '-f', 'mp4', '-preset', 'fastest', '-movflags', '+faststart', '-y', '/tmp/clip.mp4'
+        '-f', 'mp4', '-preset', 'faster', '-movflags', '+faststart', '-y', '/tmp/clip.mp4'
     }
 
     append(args, maybe_resize)
@@ -53,9 +53,9 @@ function clip()
     result = utils.subprocess({args=args})
 
     if result['status'] == 0 then
-        mp.osd_message('Clip created')
+        mp.osd_message('Clip created', 10)
     else
-        mp.osd_message('Error creating clip')
+        mp.osd_message('Error creating clip', 10)
     end
 
 
