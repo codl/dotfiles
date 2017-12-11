@@ -1,4 +1,7 @@
 {
     "zwnj":"‌",
-    "interpunct":"·"
+    "interpunct":"·",
+    "lro":"\u202D",
+    "rlo":"\u202E",
+    "pdf":"\u202C"
 }
