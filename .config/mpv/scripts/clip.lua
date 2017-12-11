@@ -39,6 +39,8 @@ function clip()
         'ffmpeg',
             '-v', 'fatal',
             '-ss', loopa, '-t', length, '-i', path,
+            '-map_metadata', '-1',
+            '-ac', '2',
             '-b:v', abr_video .. 'k', '-b:a', '128k'
     }
     more_args = {
