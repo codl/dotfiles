@@ -1,0 +1,8 @@
+#!/bin/bash
+
+git grep --cached -I -e '<<<<<<<' -e '>>>>>>>' > /dev/null && \
+    echo "no. you didnt fix all the conflicts" && \
+    echo "try again fucknut" && \
+    exit 1
+
+exit 0

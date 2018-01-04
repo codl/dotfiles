@@ -31,3 +31,6 @@
 
 [merge]
 	ff = only
+
+[init]
+	templateDir = /home/codl/.config/git-template
