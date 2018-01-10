@@ -19,7 +19,7 @@ xset s off
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 
-redshift -l 48:4.1 &
+redshift-gtk -l 48:-4.1 &
 
 (
     sleep 10
