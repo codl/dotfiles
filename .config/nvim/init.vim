@@ -26,6 +26,8 @@ Plug 'dag/vim-fish'
 
 Plug 'jkramer/vim-checkbox'
 
+Plug 'freitass/todo.txt-vim'
+
 call plug#end()
 
 set nocompatible
@@ -36,6 +38,7 @@ filetype plugin indent on
 syntax on
 
 let mapleader = ","
+let maplocalleader = ","
 
 set showcmd " show the command currently being typed
 set showmode " yep, show the mode. how exciting.
