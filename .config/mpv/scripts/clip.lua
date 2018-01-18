@@ -12,15 +12,8 @@ function append(a, b)
 end
 
 function dirname(filename)
-    idx = 1
-    for i = string.len(filename), 1, -1 do
-        char = string.sub(filename, i, i)
-        if char == '/' or char == '\\' then
-            idx = i
-            break
-        end
-    end
-    return string.sub(filename, 1, idx)
+    sep = package.config:sub(1,1)
+    return filename:match('.*'..sep)
 end
 
 function clip()
