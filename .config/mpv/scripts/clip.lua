@@ -1,5 +1,5 @@
 local mp = require 'mp'
-local msg = require 'mp.msg'
+--local msg = require 'mp.msg'
 local utils = require 'mp.utils'
 local table = require 'table'
 
@@ -13,15 +13,7 @@ function append(a, b)
 end
 
 
-function clip_sub()
-    clip(true)
-end
-
-function clip_nosub()
-    clip(false)
-end
-
-function clip(subtitles)
+function clip()
     mp.osd_message('Clipping...', 10)
 
     loopa = mp.get_property_number('ab-loop-a')
@@ -36,10 +28,15 @@ function clip(subtitles)
 
     length = loopb - loopa
 
+    subtitles = (
+        mp.get_property_bool('sid', true)
+        and mp.get_property_bool('sub-visibility')
+    )
+
     if subtitles then
         args = {
             'ffmpeg',
-                --'-v', 'fatal',
+                '-v', 'fatal',
                 '-ss', loopa, '-t', length+1, '-i', path, '-map', '0:s',
                 '-y', '/tmp/clip.ass'
         }
@@ -61,7 +58,7 @@ function clip(subtitles)
 
     args = {
         'ffmpeg',
-            --'-v', 'fatal',
+            '-v', 'fatal',
             '-ss', loopa, '-t', length, '-i', path,
             '-map_metadata', '-1',
             '-ac', '2',
@@ -95,8 +92,6 @@ function clip(subtitles)
 
     result = utils.subprocess({args=args})
 
-    msg.info(utils.to_string(args))
-
     if result['status'] == 0 then
         mp.osd_message('Clip created', 10)
     else
@@ -105,7 +100,5 @@ function clip(subtitles)
 
 
 end
-mp.osd_message('bitch', 10)
 
-mp.add_key_binding('C', 'clip', clip_nosub)
-mp.add_key_binding('X', 'clip-subtitles', clip_sub)
+mp.add_key_binding('C', 'clip', clip)
