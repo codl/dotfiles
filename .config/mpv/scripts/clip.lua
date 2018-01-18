@@ -1,7 +1,6 @@
 local mp = require 'mp'
 --local msg = require 'mp.msg'
 local utils = require 'mp.utils'
-local table = require 'table'
 
 function append(a, b)
     if #b == 0 then
@@ -12,12 +11,26 @@ function append(a, b)
     end
 end
 
+function dirname(filename)
+    idx = 1
+    for i = string.len(filename), 1, -1 do
+        char = string.sub(filename, i, i)
+        if char == '/' or char == '\\' then
+            idx = i
+            break
+        end
+    end
+    return string.sub(filename, 1, idx)
+end
 
 function clip()
     mp.osd_message('Clipping...', 10)
 
     loopa = mp.get_property_number('ab-loop-a')
     loopb = mp.get_property_number('ab-loop-b')
+
+    tmpdir = dirname(os.tmpname())
+
 
     if not loopa or not loopb then
         mp.osd_message('Must have an A-B loop to clip')
@@ -34,11 +47,12 @@ function clip()
     )
 
     if subtitles then
+        subfile = tmpdir..'clip.ass'
         args = {
             'ffmpeg',
                 '-v', 'fatal',
                 '-ss', loopa, '-t', length+1, '-i', path, '-map', '0:s',
-                '-y', '/tmp/clip.ass'
+                '-y', subfile
         }
 
         result = utils.subprocess({args=args})
@@ -69,7 +83,7 @@ function clip()
     if scale or subtitles then
         filtergraph = ''
         if subtitles then
-            filtergraph = filtergraph..'subtitles=f=/tmp/clip.ass,'
+            filtergraph = filtergraph..'subtitles=f='..subfile..','
         end
         if scale then
             filtergraph = filtergraph..'scale=-2:720,'
@@ -85,7 +99,7 @@ function clip()
             '-f', 'mp4',
             '-preset', 'slower',
             '-movflags', '+faststart',
-            '-y', '/tmp/clip.mp4'
+            '-y', tmpdir..'clip.mp4'
         }
     )
 
