@@ -12,7 +12,18 @@ function append(a, b)
     end
 end
 
-function clip()
+
+function clip_sub()
+    clip(true)
+end
+
+function clip_nosub()
+    clip(false)
+end
+
+function clip(subtitles)
+    mp.osd_message('Clipping...', 10)
+
     loopa = mp.get_property_number('ab-loop-a')
     loopb = mp.get_property_number('ab-loop-b')
 
@@ -25,34 +36,66 @@ function clip()
 
     length = loopb - loopa
 
-    abr = 7*8*1000 / length
-    abr = math.min(abr, 1000)
-    abr_video = abr - 128
+    if subtitles then
+        args = {
+            'ffmpeg',
+                --'-v', 'fatal',
+                '-ss', loopa, '-t', length+1, '-i', path, '-map', '0:s',
+                '-y', '/tmp/clip.ass'
+        }
 
-    maybe_resize = {}
-    height = mp.get_property_number('height')
-    if height > 720 then
-        maybe_resize = {'-vf', 'scale=-2:720'}
+        result = utils.subprocess({args=args})
+
+        if result['status'] ~= 0 then
+            mp.osd_message('Error creating clip', 10)
+            return
+        end
     end
+
+    abr = 8*8*1000 / length
+    abr = math.min(abr, 1000)
+    abr_video = abr - 64
+
+    height = mp.get_property_number('height')
+    scale = height > 720
 
     args = {
         'ffmpeg',
-            '-v', 'fatal',
+            --'-v', 'fatal',
             '-ss', loopa, '-t', length, '-i', path,
             '-map_metadata', '-1',
             '-ac', '2',
-            '-b:v', abr_video .. 'k', '-b:a', '128k'
-    }
-    more_args = {
-        '-f', 'mp4', '-preset', 'faster', '-movflags', '+faststart', '-y', '/tmp/clip.mp4'
+            '-sn',
+            '-b:v', abr_video .. 'k', '-b:a', '64k',
     }
 
-    append(args, maybe_resize)
-    append(args, more_args)
+    if scale or subtitles then
+        filtergraph = ''
+        if subtitles then
+            filtergraph = filtergraph..'subtitles=f=/tmp/clip.ass,'
+        end
+        if scale then
+            filtergraph = filtergraph..'scale=-2:720,'
+        end
+        filtergraph = string.sub(filtergraph, 0, -2)
+        append(args, {
+            '-vf', filtergraph,
+        })
+    end
+
+    append(args,
+        {
+            '-f', 'mp4',
+            '-preset', 'slower',
+            '-movflags', '+faststart',
+            '-y', '/tmp/clip.mp4'
+        }
+    )
 
 
-    mp.osd_message('Clipping...')
     result = utils.subprocess({args=args})
+
+    msg.info(utils.to_string(args))
 
     if result['status'] == 0 then
         mp.osd_message('Clip created', 10)
@@ -62,5 +105,7 @@ function clip()
 
 
 end
+mp.osd_message('bitch', 10)
 
-mp.add_key_binding('C', 'clip', clip)
+mp.add_key_binding('C', 'clip', clip_nosub)
+mp.add_key_binding('X', 'clip-subtitles', clip_sub)
