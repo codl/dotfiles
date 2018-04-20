@@ -7,10 +7,10 @@
 "pavucontrol"
   Alt + Mod4 + v
 
-"amixer -c 0 sset Master 2%-"
-  Mod4 + b:5
-"amixer -c 0 sset Master 2%+"
-  Mod4 + b:4
+#"amixer -c 0 sset Master 2%-"
+#  Mod4 + b:5
+#"amixer -c 0 sset Master 2%+"
+#  Mod4 + b:4
 
 "sscrot"
   Print
