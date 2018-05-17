@@ -1,0 +1,17 @@
+#!/bin/bash -e
+
+# Workaround for https://bugzilla.xfce.org/show_bug.cgi?id=10725
+# AKA https://bugzilla.redhat.com/show_bug.cgi?id=1068355
+# Author: Sean Flanigan <sflaniga@redhat.com>
+
+# This shows which plugins need to have their config fixed:
+# xfconf-query -c xfce4-panel -lv | grep tasklist
+# also see: xfconf-query -c xfce4-panel -lv | egrep 'tasklist|include-all-monitors'
+# and: xfconf-query -c xfce4-panel -l | grep include-all-monitors
+
+plugins=$(xfconf-query -c xfce4-panel -lv | grep tasklist | cut -f1 -d' ')
+for plugin in $plugins; do
+    xfconf-query -c xfce4-panel -p $plugin/include-all-monitors -s true
+    xfconf-query -c xfce4-panel -p $plugin/include-all-monitors -s false
+done
+echo Configured these taskbar plugins: $plugins
