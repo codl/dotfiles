@@ -34,7 +34,7 @@ redshift-gtk -l 48:-4.1 &
     bash $HOME/.xfce4-panel-fix
 ) &
 
-x11vnc -usepw -display $DISPLAY -N -forever -o /dev/null -bg -nobell -ncache 10
+x11vnc -usepw -display $DISPLAY -N -forever -o /dev/null -bg -nobell -ncache 2
 
 [[ -e /bin/oneko ]] && oneko --tofocus &
 
