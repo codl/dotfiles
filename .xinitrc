@@ -36,6 +36,6 @@ redshift-gtk -l 48:-4.1 &
 
 x11vnc -usepw -display $DISPLAY -N -forever -o /dev/null -bg -nobell -ncache 2
 
-[[ -e /bin/oneko ]] && oneko --tofocus &
+[[ -e /bin/oneko ]] && oneko -tofocus &
 
 exec ${WM:-startxfce4}
