@@ -58,7 +58,7 @@ function clip()
 
     abr = 8*8*1000 / length
     abr = math.min(abr, 1000)
-    abr_video = abr - 64
+    abr_video = abr - 128
 
     height = mp.get_property_number('height')
     scale = height > 720
@@ -70,7 +70,7 @@ function clip()
             '-map_metadata', '-1',
             '-ac', '2',
             '-sn',
-            '-b:v', abr_video .. 'k', '-b:a', '64k',
+            '-b:v', abr_video .. 'k', '-b:a', '128k',
     }
 
     if scale or subtitles then
