@@ -1084,7 +1084,7 @@ include "%L"
 
 <Multi_key> <Multi_key> <s> <n> : "☃" U2603 # RAD SNOWMAN
 <Multi_key> <Multi_key> <c> <l> <u> : "☁" U2601 # AGILE CLOUD RUBY ON RAILS CONCURRENCY
-<Multy_key> <?> <Left> : "⸮" # IRONY POINT
+<Multi_key> <?> <Left> : "⸮" # IRONY POINT
 
 <Multi_key> <quotedbl> <bracketleft> : "「"
 <Multi_key> <quotedbl> <bracketright> : "」"
