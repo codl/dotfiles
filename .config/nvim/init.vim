@@ -15,8 +15,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 
-Plug 'scrooloose/syntastic'
-
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'mileszs/ack.vim', { 'on': 'Ack' }
 
@@ -27,6 +25,8 @@ Plug 'dag/vim-fish'
 Plug 'jkramer/vim-checkbox'
 
 Plug 'freitass/todo.txt-vim'
+
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -170,3 +170,6 @@ let g:netrw_sort_direction = 'reverse'
 tnoremap <A-e> <C-\><C-n>
 tnoremap <C-w><C-w> <C-\><C-n><C-w><C-w>
 
+let g:ale_fixers = {
+\   'python': ['yapf'],
+\}
