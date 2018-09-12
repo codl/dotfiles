@@ -1,0 +1,10 @@
+view_lock = false
+travel_delay = 20
+equip_unequip = true
+show_travel_trail = true
+default_manual_training = true
+
+restart_after_save = true
+restart_after_game = true
+
+
