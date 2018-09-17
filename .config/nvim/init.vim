@@ -28,6 +28,8 @@ Plug 'freitass/todo.txt-vim'
 
 Plug 'w0rp/ale'
 
+Plug 'tpope/vim-obsession'
+
 call plug#end()
 
 set nocompatible
