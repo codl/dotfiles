@@ -31,6 +31,7 @@
 
 [merge]
 	ff = only
+	conflictStyle = diff3
 
 [init]
 	templateDir = /home/codl/.config/git-template
