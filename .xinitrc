@@ -9,6 +9,8 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
+export ANKI_NOHIGHDPI=1
+
 [[ -f $HOME/.xrandr.sh ]] && source $HOME/.xrandr.sh
 [[ -f $HOME/.xinput.sh ]] && (sleep 5; bash $HOME/.xinput.sh) &
 
