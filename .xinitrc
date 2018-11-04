@@ -40,4 +40,6 @@ x11vnc -usepw -display $DISPLAY -N -forever -o /dev/null -bg -nobell
 
 [[ -e /bin/oneko ]] && oneko -tofocus &
 
+xss-lock -- xscreensaver-command --lock &
+
 exec ${WM:-startxfce4}
