@@ -16,9 +16,7 @@ function dirname(filename)
     return filename:match('.*'..sep)
 end
 
-function clip()
-    mp.osd_message('Clipping...', 10)
-
+function prepare_clip()
     loopa = mp.get_property_number('ab-loop-a')
     loopb = mp.get_property_number('ab-loop-b')
 
@@ -96,6 +94,22 @@ function clip()
         }
     )
 
+    return args
+end
+
+function dump_clip_script()
+    args = prepare_clip()
+    f = io.open('/tmp/clip.sh', 'w')
+    args_s = '"' .. table.concat(args, '" "') .. '"';
+    f:write(args_s)
+    f:close()
+    mp.osd_message('Dumped /tmp/clip.sh', 10)
+end
+
+function clip()
+    mp.osd_message('Clipping...', 10)
+
+    args = prepare_clip()
 
     result = utils.subprocess({args=args})
 
@@ -109,3 +123,4 @@ function clip()
 end
 
 mp.add_key_binding('C', 'clip', clip)
+mp.add_key_binding('ctrl+shift+C', 'dump-clip-script', dump_clip_script)
