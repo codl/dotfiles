@@ -1,1 +1,2 @@
 --no-playlist
+--format bestvideo[height<=1080]+bestaudio/best
