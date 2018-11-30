@@ -1,2 +1,5 @@
 --no-playlist
 --format bestvideo[height<=1080]+bestaudio/best
+--write-sub
+--embed-subs
+--add-metadata
