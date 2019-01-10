@@ -5,6 +5,8 @@
   Print
 "sscrot -s"
   shift + Print
+"sscrot -f"
+  Control + Print
 
 "true"
     F16
