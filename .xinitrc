@@ -28,7 +28,6 @@ redshift-gtk -l 48:-4.1 &
     [[ -f $HOME/.xmodmap ]] && xmodmap $HOME/.xmodmap
     ibus-daemon -drx
     syncthing-gtk &
-    [[ -e /bin/sonata ]] && sonata --hidden
 )&
 
 (
