@@ -1,5 +1,4 @@
 local mp = require 'mp'
---local msg = require 'mp.msg'
 local utils = require 'mp.utils'
 
 function append(a, b)
@@ -55,7 +54,6 @@ function prepare_clip()
     end
 
     abr = 8*8*1000 / length
-    abr = math.min(abr, 1000)
     abr_video = abr - 128
 
     height = mp.get_property_number('height')
@@ -81,12 +79,13 @@ function prepare_clip()
         end
         filtergraph = string.sub(filtergraph, 0, -2)
         append(args, {
-            '-vf', filtergraph,
+            '-filter:v', filtergraph,
         })
     end
 
     append(args,
         {
+            '-filter:a', 'acompressor=ratio=20:threshold=.02:makeup=10:attack=10:release=30',
             '-f', 'mp4',
             '-preset', 'slower',
             '-movflags', '+faststart',
