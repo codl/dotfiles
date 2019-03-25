@@ -57,7 +57,7 @@ function prepare_clip()
     abr_video = abr - 128
 
     height = mp.get_property_number('height')
-    scale = height > 720
+    scale = height > 1080
 
     args = {
         'ffmpeg',
@@ -65,8 +65,13 @@ function prepare_clip()
             '-ss', loopa, '-t', length, '-i', path,
             '-map_metadata', '-1',
             '-ac', '2',
+            '-filter:a', 'acompressor=ratio=20:threshold=.02:makeup=10:attack=10:release=30',
             '-sn',
-            '-b:v', abr_video .. 'k', '-b:a', '128k',
+            '-b:a', '128k',
+            '-maxrate', abr_video .. 'k',
+            '-bufsize', '8M',
+            '-crf', '18',
+            '-pix_fmt', 'yuv420p'
     }
 
     if scale or subtitles then
@@ -75,7 +80,7 @@ function prepare_clip()
             filtergraph = filtergraph..'subtitles=f='..subfile..','
         end
         if scale then
-            filtergraph = filtergraph..'scale=-2:720,'
+            filtergraph = filtergraph..'scale=-2:1080,'
         end
         filtergraph = string.sub(filtergraph, 0, -2)
         append(args, {
@@ -85,7 +90,6 @@ function prepare_clip()
 
     append(args,
         {
-            '-filter:a', 'acompressor=ratio=20:threshold=.02:makeup=10:attack=10:release=30',
             '-f', 'mp4',
             '-preset', 'slower',
             '-movflags', '+faststart',
