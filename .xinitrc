@@ -34,7 +34,7 @@ redshift-gtk -l 48:-4.1 &
     bash $HOME/.xfce4-panel-fix
 ) &
 
-x11vnc -usepw -display $DISPLAY -N -forever -o /dev/null -bg -nobell
+x11vnc -usepw -display $DISPLAY -N -forever -o /dev/null -bg -nobell -allow 10.7.0.0/24
 
 xss-lock -- xscreensaver-command --lock &
 
