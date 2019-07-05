@@ -14,7 +14,6 @@ export ANKI_NOHIGHDPI=1
 [[ -f $HOME/.xrandr.sh ]] && source $HOME/.xrandr.sh
 [[ -f $HOME/.xinput.sh ]] && (sleep 5; bash $HOME/.xinput.sh) &
 
-setxkbmap fr -option compose:menu
 xbindkeys
 xset s off
 
@@ -36,8 +35,6 @@ redshift-gtk -l 48:-4.1 &
 ) &
 
 x11vnc -usepw -display $DISPLAY -N -forever -o /dev/null -bg -nobell
-
-[[ -e /bin/oneko ]] && oneko -tofocus &
 
 xss-lock -- xscreensaver-command --lock &
 
