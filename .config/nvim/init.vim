@@ -140,6 +140,9 @@ if has("autocmd")
         autocmd!
         autocmd BufNewFile,BufRead *.p8 set noexpandtab
     augroup END
+    augroup FugitiveIsBitch
+        autocmd QuickFixCmdPost *grep* cwindow
+    augroup END
 endif
 
 nnoremap <leader>k :Dispatch<CR>
