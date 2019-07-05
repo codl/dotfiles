@@ -15,6 +15,7 @@
 	loga = !git logg --all
 	pullff = pull --ff-only
 	next = !git status --porcelain=v1 | grep -E \"^(UU|AA)\" | cut -d \" \" -f 2- | head -n 1
+	feta = fetch --all --tags --prune
 
 [push]
 	default = matching
