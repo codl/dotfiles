@@ -12,8 +12,8 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'zchee/deoplete-jedi'
 
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'mileszs/ack.vim', { 'on': 'Ack' }
@@ -24,11 +24,13 @@ Plug 'dag/vim-fish'
 
 Plug 'jkramer/vim-checkbox'
 
-Plug 'freitass/todo.txt-vim'
-
 Plug 'w0rp/ale'
 
 Plug 'tpope/vim-obsession'
+
+Plug 'tpope/vim-dispatch'
+
+Plug 'zxqfl/tabnine-vim'
 
 call plug#end()
 
@@ -133,6 +135,7 @@ if has("autocmd")
         autocmd BufNewFile,BufRead *.md set filetype=markdown
         autocmd FileType go let b:dispatch = 'go build'
         autocmd FileType ruby let b:dispatch = 'rake'
+        autocmd FileType dot let b:dispatch = 'dot -Tpng -O %'
         autocmd FileType * if !empty(glob("nanoc.yaml"))  | let b:dispatch = 'nanoc' | endif
         autocmd FileType * if !empty(glob("../nanoc.yaml"))  | let b:dispatch = 'cd ..; nanoc' | endif
     augroup END
@@ -176,5 +179,5 @@ tnoremap <A-e> <C-\><C-n>
 tnoremap <C-w><C-w> <C-\><C-n><C-w><C-w>
 
 let g:ale_fixers = {
-\   'python': ['yapf'],
+\   'python': ['black'],
 \}
