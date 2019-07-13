@@ -30,8 +30,6 @@ Plug 'tpope/vim-obsession'
 
 Plug 'tpope/vim-dispatch'
 
-Plug 'zxqfl/tabnine-vim'
-
 call plug#end()
 
 set nocompatible
