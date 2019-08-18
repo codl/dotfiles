@@ -26,6 +26,7 @@
 
 [core]
 	excludesfile = /home/codl/.gitignore
+	commitGraph = true
 [commit]
 	gpgSign = true
 [rebase]
