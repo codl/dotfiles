@@ -41,7 +41,7 @@ function prepare_clip()
         args = {
             'ffmpeg',
                 '-v', 'fatal',
-                '-ss', loopa, '-t', length+1, '-i', path, '-map', '0:s',
+                '-ss', tostring(loopa), '-t', tostring(length+1), '-i', tostring(path), '-map', '0:s',
                 '-y', subfile
         }
 
@@ -62,7 +62,7 @@ function prepare_clip()
     args = {
         'ffmpeg',
             '-v', 'fatal',
-            '-ss', loopa, '-t', length, '-i', path,
+            '-ss', tostring(loopa), '-t', tostring(length), '-i', tostring(path),
             '-map_metadata', '-1',
             '-ac', '2',
             '-filter:a', 'acompressor=ratio=20:threshold=.001:makeup=64:attack=20:release=1000,volume=2.5',
@@ -114,7 +114,7 @@ function clip()
 
     args = prepare_clip()
 
-    result = utils.subprocess({args=args})
+    result = mp.command_native({name="subprocess", args=args})
 
     if result['status'] == 0 then
         mp.osd_message('Clip created', 10)
