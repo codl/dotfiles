@@ -38,3 +38,6 @@
 
 [init]
 	templateDir = /home/codl/.config/git-template
+
+[sendemail]
+	smtpserver = /usr/bin/msmtp
