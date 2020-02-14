@@ -15,9 +15,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]--
 --[[
-    mpv_thumbnail_script.lua 0.3.4 - commit 74221bd (branch master)
+    mpv_thumbnail_script.lua 0.4.2 - commit a2de250 (branch master)
     https://github.com/TheAMM/mpv_thumbnail_script
-    Built on 2018-01-03 01:16:24
+    Built on 2018-02-07 20:36:55
 ]]--
 local assdraw = require 'mp.assdraw'
 local msg = require 'mp.msg'
@@ -820,6 +820,10 @@ local Thumbnailer = {
         -- Extra options for the workers
         worker_extra = {},
     },
+    -- Set in register_client
+    worker_register_timeout = nil,
+    -- A timer used to wait for more workers in case we have none
+    worker_wait_timer = nil,
     workers = {}
 }
 
@@ -853,8 +857,13 @@ function Thumbnailer:on_thumb_progress(index)
     self.state.thumbnails[index] = math.max(self.state.thumbnails[index], 0)
 end
 
-function Thumbnailer:on_video_change(params)
+function Thumbnailer:on_start_file()
+    -- Clear state when a new file is being loaded
     self:clear_state()
+end
+
+function Thumbnailer:on_video_change(params)
+    -- Gather a new state when we get proper video-dec-params and our state is empty
     if params ~= nil then
         if not self.state.ready then
             self:update_state()
@@ -864,6 +873,8 @@ end
 
 
 function Thumbnailer:update_state()
+    msg.debug("Gathering video/thumbnail state")
+
     self.state.thumbnail_delta = self:get_delta()
     self.state.thumbnail_count = self:get_thumbnail_count(self.state.thumbnail_delta)
 
@@ -895,6 +906,8 @@ function Thumbnailer:update_state()
     if has_video and self.state.thumbnail_delta ~= nil and self.state.thumbnail_size ~= nil and self.state.thumbnail_count > 0 then
         self.state.available = true
     end
+
+    msg.debug("Thumbnailer.state:", utils.to_string(self.state))
 
 end
 
@@ -1039,6 +1052,8 @@ function Thumbnailer:get_thumbnail_path(time_position)
 end
 
 function Thumbnailer:register_client()
+    self.worker_register_timeout = mp.get_time() + 2
+
     mp.register_script_message("mpv_thumbnail_script-ready", function(index, path)
         self:on_thumb_ready(tonumber(index), path)
     end)
@@ -1071,8 +1086,8 @@ function Thumbnailer:register_client()
     local thumb_script_key = not thumbnailer_options.disable_keybinds and "T" or nil
     mp.add_key_binding(thumb_script_key, "generate-thumbnails", function()
         if self.state.available then
-            self:start_worker_jobs()
             mp.osd_message("Started thumbnailer jobs")
+            self:start_worker_jobs()
         else
             mp.osd_message("Thumbnailing unavailabe")
         end
@@ -1139,8 +1154,6 @@ function Thumbnailer:prepare_source_path()
 end
 
 function Thumbnailer:start_worker_jobs()
-    self.state.enabled = true
-
     -- Create directory for the thumbnails, if needed
     local l, err = utils.readdir(self.state.thumbnail_directory)
     if err then
@@ -1158,34 +1171,59 @@ function Thumbnailer:start_worker_jobs()
 
     local worker_count = #worker_list
 
+    -- In case we have a worker timer created already, clear it
+    -- (For example, if the video-dec-params change in quick succession or the user pressed T, etc)
+    if self.worker_wait_timer then
+        self.worker_wait_timer:stop()
+    end
+
     if worker_count == 0 then
-        local err = "No thumbnail workers found. Make sure you are not missing a script!"
-        msg.error(err)
-        mp.osd_message(err, 3)
+        local now = mp.get_time()
+        if mp.get_time() > self.worker_register_timeout then
+            -- Workers have had their time to register but we have none!
+            local err = "No thumbnail workers found. Make sure you are not missing a script!"
+            msg.error(err)
+            mp.osd_message(err, 3)
+
+        else
+            -- We may be too early. Delay the work start a bit to try again.
+            msg.warn("No workers found. Waiting a bit more for them.")
+            -- Wait at least half a second
+            local wait_time = math.max(self.worker_register_timeout - now, 0.5)
+            self.worker_wait_timer = mp.add_timeout(wait_time, function() self:start_worker_jobs() end)
+        end
 
     else
+        -- We have at least one worker. This may not be all of them, but they have had
+        -- their time to register; we've done our best waiting for them.
+        self.state.enabled = true
+
+        msg.debug( ("Splitting %d thumbnails amongst %d worker(s)"):format(self.state.thumbnail_count, worker_count) )
+
         local frame_job_order = self:_create_thumbnail_job_order()
         local worker_jobs = {}
         for i = 1, worker_count do worker_jobs[worker_list[i]] = {} end
 
-        -- Split frames amongs the workers
+        -- Split frames amongst the workers
         for i, thumbnail_index in ipairs(frame_job_order) do
             local worker_id = worker_list[ ((i-1) % worker_count) + 1 ]
             table.insert(worker_jobs[worker_id], thumbnail_index)
         end
 
         local state_json_string = utils.format_json(self.state)
+        msg.debug("Giving workers state:", state_json_string)
 
         for worker_name, worker_frames in pairs(worker_jobs) do
             if #worker_frames > 0 then
                 local frames_json_string = utils.format_json(worker_frames)
-                msg.debug("Giving job to", worker_name, frames_json_string)
+                msg.debug("Assigning job to", worker_name, frames_json_string)
                 mp.commandv("script-message-to", worker_name, "mpv_thumbnail_script-job", state_json_string, frames_json_string)
             end
         end
     end
 end
 
+mp.register_event("start-file", function() Thumbnailer:on_start_file() end)
 mp.observe_property("video-dec-params", "native", function(name, params) Thumbnailer:on_video_change(params) end)
 --[[
 This is mpv's original player/lua/osc.lua patched to display thumbnails

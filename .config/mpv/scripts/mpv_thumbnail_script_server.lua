@@ -15,9 +15,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]--
 --[[
-    mpv_thumbnail_script.lua 0.3.4 - commit 74221bd (branch master)
+    mpv_thumbnail_script.lua 0.4.2 - commit a2de250 (branch master)
     https://github.com/TheAMM/mpv_thumbnail_script
-    Built on 2018-01-03 01:16:24
+    Built on 2018-02-07 20:36:54
 ]]--
 local assdraw = require 'mp.assdraw'
 local msg = require 'mp.msg'
@@ -475,6 +475,13 @@ function create_thumbnail_mpv(file_path, timestamp, size, output_path, options)
     local ytdl_disabled = not options.enable_ytdl and (mp.get_property_native("ytdl") == false
                                                        or thumbnailer_options.remote_direct_stream)
 
+    local header_fields_arg = nil
+    local header_fields = mp.get_property_native("http-header-fields")
+    if #header_fields > 0 then
+        -- We can't escape the headers, mpv won't parse "--http-header-fields='Name: value'" properly
+        header_fields_arg = "--http-header-fields=" .. table.concat(header_fields, ",")
+    end
+
     local profile_arg = nil
     if thumbnailer_options.mpv_profile ~= "" then
         profile_arg = "--profile=" .. thumbnailer_options.mpv_profile
@@ -489,6 +496,11 @@ function create_thumbnail_mpv(file_path, timestamp, size, output_path, options)
 
         -- Disable ytdl
         (ytdl_disabled and "--no-ytdl" or nil),
+        -- Pass HTTP headers from current instance
+        header_fields_arg,
+        -- Pass User-Agent and Referer - should do no harm even with ytdl active
+        "--user-agent=" .. mp.get_property_native("user-agent"),
+        "--referrer=" .. mp.get_property_native("referrer"),
         -- Disable hardware decoding
         "--hwdec=no",
 
@@ -510,7 +522,7 @@ function create_thumbnail_mpv(file_path, timestamp, size, output_path, options)
         "--vf-add=format=bgra",
         "--of=rawvideo",
         "--ovc=rawvideo",
-        "--o", output_path
+        "--o=" .. output_path
     })
     return utils.subprocess({args=mpv_command})
 end
@@ -574,6 +586,7 @@ end
 
 
 function do_worker_job(state_json_string, frames_json_string)
+    msg.debug("Handling given job")
     local thumb_state, err = utils.parse_json(state_json_string)
     if err then
         msg.error("Failed to parse state JSON")
@@ -591,7 +604,7 @@ function do_worker_job(state_json_string, frames_json_string)
         if ExecutableFinder:get_executable_path("ffmpeg") then
             thumbnail_func = create_thumbnail_ffmpeg
         else
-            msg.warning("Could not find ffmpeg in PATH! Falling back on mpv.")
+            msg.warn("Could not find ffmpeg in PATH! Falling back on mpv.")
         end
     end
 
@@ -599,15 +612,20 @@ function do_worker_job(state_json_string, frames_json_string)
     local file_path = thumb_state.worker_input_path
 
     if thumb_state.is_remote then
+        if (thumbnail_func == create_thumbnail_ffmpeg) then
+            msg.warn("Thumbnailing remote path, falling back on mpv.")
+        end
         thumbnail_func = create_thumbnail_mpv
     end
 
     local generate_thumbnail_for_index = function(thumbnail_index)
         -- Given a 1-based thumbnail index, generate a thumbnail for it based on the thumbnailer state
+        local thumb_idx = thumbnail_index - 1
+        msg.debug("Starting work on thumbnail", thumb_idx)
 
-        local thumbnail_path = thumb_state.thumbnail_template:format(thumbnail_index-1)
+        local thumbnail_path = thumb_state.thumbnail_template:format(thumb_idx)
         -- Grab the "middle" of the thumbnail duration instead of the very start, and leave some margin in the end
-        local timestamp = math.min(file_duration - 0.25, (thumbnail_index - 1 + 0.5) * thumb_state.thumbnail_delta)
+        local timestamp = math.min(file_duration - 0.25, (thumb_idx + 0.5) * thumb_state.thumbnail_delta)
 
         mp.commandv("script-message", "mpv_thumbnail_script-progress", tostring(thumbnail_index))
 
@@ -624,7 +642,7 @@ function do_worker_job(state_json_string, frames_json_string)
             local existing_thumbnail_filesize = thumbnail_file:seek("end")
             if existing_thumbnail_filesize ~= thumbnail_raw_size then
                 -- Size doesn't match, so (re)generate
-                msg.warn("Thumbnail", thumbnail_index-1, "did not match expected size, regenerating")
+                msg.warn("Thumbnail", thumb_idx, "did not match expected size, regenerating")
                 need_thumbnail_generation = true
             end
             thumbnail_file:close()
@@ -636,12 +654,15 @@ function do_worker_job(state_json_string, frames_json_string)
 
             if success == nil then
                 -- Killed by us, changing files, ignore
+                msg.debug("Changing files, subprocess killed")
                 return true
             elseif not success then
-                -- Failure
+                -- Real failure
                 mp.osd_message("Thumbnailing failed, check console for details", 3.5)
                 return true
             end
+        else
+            msg.debug("Thumbnail", thumb_idx, "already done!")
         end
 
         -- Verify thumbnail size
@@ -670,12 +691,8 @@ function do_worker_job(state_json_string, frames_json_string)
             thumbnail_file:close()
         end
 
+        msg.debug("Finished work on thumbnail", thumb_idx)
         mp.commandv("script-message", "mpv_thumbnail_script-ready", tostring(thumbnail_index), thumbnail_path)
-    end
-
-    for i, thumbnail_index in ipairs(thumbnail_indexes) do
-        local bail = generate_thumbnail_for_index(thumbnail_index)
-        if bail then return end
     end
 
     msg.debug(("Generating %d thumbnails @ %dx%d for %q"):format(
@@ -683,6 +700,12 @@ function do_worker_job(state_json_string, frames_json_string)
         thumb_state.thumbnail_size.w,
         thumb_state.thumbnail_size.h,
         file_path))
+
+    for i, thumbnail_index in ipairs(thumbnail_indexes) do
+        local bail = generate_thumbnail_for_index(thumbnail_index)
+        if bail then return end
+    end
+
 end
 
 -- Set up listeners and keybinds
@@ -693,7 +716,7 @@ mp.register_script_message("mpv_thumbnail_script-job", do_worker_job)
 
 -- Register this worker with the master script
 local register_timer = nil
-local register_timeout = mp.get_time() + 3
+local register_timeout = mp.get_time() + 1.5
 
 local register_function = function()
     if mp.get_time() > register_timeout and register_timer then
