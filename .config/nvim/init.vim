@@ -177,3 +177,5 @@ function! GitStatus()
 endfunction
 
 set statusline=%<%q%f%(@%{FugitiveHead(7)}\%{GitStatus()}%)%h%m%r%=%y\ %-9.(%l,%c%V%)\ %P
+
+set diffopt+=vertical
