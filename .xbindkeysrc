@@ -10,8 +10,6 @@
 
 "true"
     F16
-"true"
-    grave
 
 "mpc prev"
   Mod4 + F10
