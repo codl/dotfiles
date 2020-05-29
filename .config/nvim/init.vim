@@ -3,34 +3,35 @@ scriptencoding utf-8
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'dietsche/vim-lastplace'
-Plug 'tpope/vim-sleuth'
+Plug 'farmergreg/vim-lastplace'
+Plug 'tpope/vim-sleuth' " autodetects tab settings
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-vinegar'
 
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'zchee/deoplete-jedi'
+Plug 'tpope/vim-rhubarb' " github support for :GBrowse
 
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'mileszs/ack.vim', { 'on': 'Ack' }
+Plug 'airblade/vim-gitgutter'
+set updatetime=500 " updates gitgutters more often
 
 Plug 'ap/vim-css-color'
 
 Plug 'dag/vim-fish'
 
-Plug 'jkramer/vim-checkbox'
-
-Plug 'w0rp/ale'
-
-Plug 'tpope/vim-obsession'
-
-Plug 'tpope/vim-dispatch'
-
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
+Plug 'zxqfl/tabnine-vim'
+
+"Plug 'jkramer/vim-checkbox'
+"Plug 'w0rp/ale'
+"Plug 'tpope/vim-obsession'
+"Plug 'tpope/vim-dispatch'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'zchee/deoplete-jedi'
+"Plug 'mhinz/vim-signify'
 
 call plug#end()
 
@@ -38,21 +39,13 @@ set nocompatible
 
 set mouse=a
 
-filetype plugin indent on
-syntax on
-
 let mapleader = ","
 let maplocalleader = ","
 
-set showcmd " show the command currently being typed
-set showmode " yep, show the mode. how exciting.
-set laststatus=2 " always show filename
-
-set wrap
 set linebreak " ⚠ only takes effect when list is disabled
 
 " indentation crap
-set shiftwidth=4 " autoindent 4 spaces
+set shiftwidth=4 " indent 4 spaces
 set shiftround " when indenting / deleting indentation, round to shiftwidth
 set smarttab   " ^ same thing with <Tab>
 set tabstop=4 " a tab is as wide as 4 spaces
@@ -70,40 +63,25 @@ set smartcase  " ^ unless there is at least one uppercase character
 set nobackup " backups are annoying
 set writebackup " backup file during write
 
-set colorcolumn=+1 " hilight 81st column
-set tw=0
+set colorcolumn=81 " hilight 81st column
+set textwidth=0
 
-set history=100
-set undolevels=1000
-set undodir=~/.local/share/nvim/undo " persistent undo
-set undofile                         " ^
+set undofile " save undo steps to disk
 
-set wildignore=*.bak,*.pyc,*.class,*.o,*.d
-set wildignore+=*/venv/*,*/.git/*,*/node_modules/*,*/vendor/bundle/*
+if !exists('g:wildignore_was_set')
+    set wildignore+=*.bak,*.pyc,*.class,*.o,*.d
+    set wildignore+=*/venv/*,*/.git/*,*/node_modules/*,*/vendor/bundle/*
+    let g:wildignore_was_set=1
+endif
+
 set pastetoggle=<F2> " press f2 in insert mode to disable paste-harmful features
 
 set wildmenu " show a sexy menu when tab-completing
 
-" Folding
-set foldmethod=indent " use indentation to specify folds
-" fold/unfold with space
-nnoremap <space> za
-set foldminlines=3 " a fold must be at least 3 lines
-set foldnestmax=8
-set foldlevel=100 " start with all folds open
-set foldignore=\"#/; " ignore comment characters when folding
-
 set scrolloff=2 " start scrolling 3 lines before window border
-
-set diffopt+=vertical " why the fuck would you want horizontal diff
 
 colorscheme default
 set background=light
-
-" I never use gvim, but who knows?
-set guioptions=aFi
-set guicursor+=a:blinkon0 " disable cursor blinking
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 
 " split to the right, not to the left
 set splitright
@@ -121,36 +99,23 @@ nnoremap <leader>; <C-^>
 noremap à 10k
 noremap ç 10j
 
-set listchars=nbsp:␣,tab:\|\ ,trail:␣,extends:>,precedes:<
+set listchars=nbsp:␣,tab:\|\ ,trail:␣,extends:»,precedes:«
 set list
 
-set winwidth=80
-
-" fast escape out of insert mode
-set ttimeoutlen=10
+set winwidth=80    " soft limit for width of current window
+set winminwidth=16 " hard limit for other windows
 
 if has("autocmd")
-    augroup Dispatch
-        autocmd!
-        autocmd BufNewFile,BufRead *.md set filetype=markdown
-        autocmd FileType go let b:dispatch = 'go build'
-        autocmd FileType ruby let b:dispatch = 'rake'
-        autocmd FileType dot let b:dispatch = 'dot -Tpng -O %'
-        autocmd FileType * if !empty(glob("nanoc.yaml"))  | let b:dispatch = 'nanoc' | endif
-        autocmd FileType * if !empty(glob("../nanoc.yaml"))  | let b:dispatch = 'cd ..; nanoc' | endif
-    augroup END
     augroup Filetypes
         autocmd!
         autocmd BufNewFile,BufRead *.p8 set noexpandtab
     augroup END
-    augroup FugitiveIsBitch
+    augroup FixFugitive
+        autocmd!
         autocmd QuickFixCmdPost *grep* cwindow
+        " opens the quickfix window after :Ggrep
     augroup END
 endif
-
-nnoremap <leader>k :Dispatch<CR>
-nnoremap <leader>j :Dispatch!<CR>
-nnoremap <leader>K :Dispatch
 
 let g:ctrlp_map = ';;'
 nnoremap ;, :CtrlPMRUFiles<CR>
@@ -160,12 +125,8 @@ let g:ctrlp_max_files = 100000
 let g:ctrlp_root_markers = ['.stfolder']
 let g:ctrlp_mruf_exclude = '/tmp/psql\.edit.*|/var/tmp/.*'
 
-let g:syntastic_javascript_checkers = ['eslint']
-
-set updatetime=1000
-
 let g:ackprg = 'ag --vimgrep'
-command -nargs=* Ag Ack <args>
+command! -nargs=* Ag Ack <args>
 
 let g:deoplete#enable_at_startup = 1
 
@@ -176,8 +137,24 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:netrw_sort_by = 'time'
 let g:netrw_sort_direction = 'reverse'
 
+" Alt-e returns to normal mode from a terminal
 tnoremap <A-e> <C-\><C-n>
+" ^W^W out of a terminal
 tnoremap <C-w><C-w> <C-\><C-n><C-w><C-w>
+
+function! TermReminder()
+    if mode() == 't'
+        return "<Alt-E> for Normal mode"
+    else
+        return ""
+    endif
+endfunction
+
+augroup Terminal
+    autocmd!
+    autocmd TermOpen * setlocal statusline=%{b:term_title}%=%{TermReminder()}
+augroup END
+
 
 let g:ale_fixers = {
 \   'python': ['black'],
@@ -188,3 +165,15 @@ if exists('g:started_by_firenvim')
     set laststatus=0
     let g:ctrlp_mruf_exclude = '.*'
 endif
+
+
+function! GitStatus()
+    let [a,m,r] = GitGutterGetHunkSummary()
+    if a > 0 || m > 0 || r > 0
+        return printf('+%d~%d-%d', a, m, r)
+    else
+        return ""
+    endif
+endfunction
+
+set statusline=%<%q%f%(@%{FugitiveHead(7)}\%{GitStatus()}%)%h%m%r%=%y\ %-9.(%l,%c%V%)\ %P
