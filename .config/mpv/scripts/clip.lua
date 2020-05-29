@@ -65,7 +65,7 @@ function prepare_clip()
             '-ss', tostring(loopa), '-t', tostring(length), '-i', tostring(path),
             '-map_metadata', '-1',
             '-ac', '2',
-            '-filter:a', 'acompressor=ratio=20:threshold=.001:makeup=64:attack=20:release=1000,volume=2.5',
+            --'-filter:a', 'acompressor=ratio=20:threshold=.001:makeup=64:attack=20:release=1000,volume=2.5',
             '-sn',
             '-b:a', '128k',
             '-maxrate', abr_video .. 'k',
