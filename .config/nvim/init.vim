@@ -30,6 +30,8 @@ Plug 'tpope/vim-obsession'
 
 Plug 'tpope/vim-dispatch'
 
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
 call plug#end()
 
 set nocompatible
@@ -179,3 +181,9 @@ tnoremap <C-w><C-w> <C-\><C-n><C-w><C-w>
 let g:ale_fixers = {
 \   'python': ['black'],
 \}
+
+if exists('g:started_by_firenvim')
+    let g:firenvim_config = {'localSettings': {'.*': {'takeover': 'never'}}}
+    set laststatus=0
+    let g:ctrlp_mruf_exclude = '.*'
+endif
