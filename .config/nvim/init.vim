@@ -109,6 +109,7 @@ if has("autocmd")
     augroup Filetypes
         autocmd!
         autocmd BufNewFile,BufRead *.p8 set noexpandtab
+        autocmd FileType python nnoremap <buffer> <Leader>k :%!pipx run black -
     augroup END
     augroup FixFugitive
         autocmd!
