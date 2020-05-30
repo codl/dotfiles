@@ -5,4 +5,5 @@ end
 if status --is-interactive; and test -d $HOME/.rbenv
     set -x PATH $HOME/.rbenv/bin $PATH
     source (rbenv init -|psub)
+    ametameric -r
 end
