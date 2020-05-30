@@ -9,8 +9,17 @@ function ametameric
     end
     if test ! -f $HOME/.cache/ametameric/$filename
         mkdir -p $HOME/.cache/ametameric/
-        wget "https://pippin.gimp.org/ametameric/"$filename \
-            -O $HOME/.cache/ametameric/$filename
+        echo "Downloading $filename in the background..."
+        wget -q "https://pippin.gimp.org/ametameric/"$filename \
+            -O $HOME/.cache/ametameric/$filename &
+        function _postdownload --inherit-variable filename --on-process-exit (jobs --last --pid)
+            __ametameric_init $filename
+        end
+    else
+        __ametameric_init $filename
     end
-    and head -c 422 $HOME/.cache/ametameric/$filename
+end
+
+function __ametameric_init -a filename
+    head -c 422 $HOME/.cache/ametameric/$filename
 end
