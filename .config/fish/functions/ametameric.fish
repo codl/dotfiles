@@ -11,6 +11,7 @@ function ametameric
         mkdir -p $HOME/.cache/ametameric/
         echo "Downloading $filename in the background..."
         wget -q "https://pippin.gimp.org/ametameric/"$filename \
+            --user-agent="ametameric.fish +https://github.com/codl/dotfiles/blob/master/.config/fish/functions/ametameric.fish" \
             -O $HOME/.cache/ametameric/$filename &
         function _postdownload --inherit-variable filename --on-process-exit (jobs --last --pid)
             __ametameric_init $filename
