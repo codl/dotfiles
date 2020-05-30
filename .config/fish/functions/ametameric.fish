@@ -16,7 +16,7 @@
 
 function ametameric
 
-    argparse --name=antameric --exclusive=r,d 'r/reverse' 'd/desaturated' -- $argv
+    argparse --exclusive=r,d 'r/reverse' 'd/desaturated' -- $argv
     or return
 
     set filename 'ametameric.esc'
