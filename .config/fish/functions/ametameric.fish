@@ -1,12 +1,31 @@
+# This function initializes the ametameric color palette in your terminal.
+# It is intended to be added to your config.fish like so:
+#
+# if status --is-interactive
+#     ametameric
+# end
+#
+# Command-line flags -r (--reverse) and -d (--desaturated) download and apply
+# variants of the palette. As of 2020-05-30 the desaturated variant is not
+# available, not much I can do about that.
+#
+# On first run, it will download the palette in the background and apply it when
+# it is done. Subsequent runs will apply the palette from cache.
+#
+# Ametameric is made by Øyvind Kolås <https://pippin.gimp.org/ametameric/>
+
 function ametameric
+
     argparse --name=antameric --exclusive=r,d 'r/reverse' 'd/desaturated' -- $argv
     or return
+
     set filename 'ametameric.esc'
     if set -q _flag_r
         set filename 'ametameric-reverse.esc'
     else if set -q _flag_d
         set filename 'ametameric-desaturated.esc'
     end
+
     if test ! -f $HOME/.cache/ametameric/$filename
         mkdir -p $HOME/.cache/ametameric/
         echo "Downloading $filename in the background..."
@@ -22,5 +41,7 @@ function ametameric
 end
 
 function __ametameric_init -a filename
+    # cutting after 422 bytes means we only get the color setting escapes
+    # without the cute little color demo
     head -c 422 $HOME/.cache/ametameric/$filename
 end
