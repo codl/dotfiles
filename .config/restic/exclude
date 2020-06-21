@@ -1,0 +1,17 @@
+$HOME/.cache/restic/
+$HOME/.cache/mozilla/firefox/
+$HOME/.cache/google-chrome/
+$HOME/.cache/pip/
+$HOME/.cache/pipenv/
+$HOME/.cache/yarn/
+$HOME/.cache/thumbnails/
+$HOME/.cache/mpv_thumbnails/
+$HOME/.cache/wine/
+$HOME/.cache/winetricks/
+$HOME/.cargo/registry/cache/
+$HOME/.cargo/registry/index/
+node_modules
+$HOME/.config/syncthing/index-*.db/
+__pycache__
+.stversions
+
