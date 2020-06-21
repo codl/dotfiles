@@ -25,7 +25,6 @@
 	ui = auto
 
 [core]
-	excludesfile = /home/codl/.gitignore
 	commitGraph = true
 [commit]
 	gpgSign = true
@@ -41,3 +40,10 @@
 
 [sendemail]
 	smtpserver = /usr/bin/msmtp
+[pull]
+	ff = only
+
+[init]
+	templateDir = ~/dotfiles/.config/git/template/
+	# this *must* point directly at the dotfiles repo rather than the deployed
+	# copy, as otherwise git will simply copy the symlinks
