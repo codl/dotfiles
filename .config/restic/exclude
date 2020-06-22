@@ -10,8 +10,10 @@ $HOME/.cache/wine/
 $HOME/.cache/winetricks/
 $HOME/.cargo/registry/cache/
 $HOME/.cargo/registry/index/
+$HOME/.config/discord/Cache/
+$HOME/.local/share/Steam/config/htmlcache/Cache/
+$HOME/.local/share/Steam/appcache/
 node_modules
 $HOME/.config/syncthing/index-*.db/
 __pycache__
 .stversions
-
