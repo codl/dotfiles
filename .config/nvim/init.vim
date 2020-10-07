@@ -23,7 +23,7 @@ Plug 'dag/vim-fish'
 
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
-Plug 'zxqfl/tabnine-vim'
+"Plug 'zxqfl/tabnine-vim'
 
 "Plug 'jkramer/vim-checkbox'
 "Plug 'w0rp/ale'
