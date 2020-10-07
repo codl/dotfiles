@@ -38,18 +38,22 @@ function prepare_clip()
 
     if subtitles then
         subfile = tmpdir..'clip.ass'
+        sid = mp.get_property_number('sid', 1)-1
         args = {
             'ffmpeg',
                 '-v', 'fatal',
-                '-ss', tostring(loopa), '-t', tostring(length+1), '-i', tostring(path), '-map', '0:s',
+                '-ss', tostring(loopa),
+                '-t', tostring(length+1),
+                '-i', tostring(path),
+                '-map', '0:s:'..sid,
                 '-y', subfile
         }
 
-        result = utils.subprocess({args=args})
+        result = mp.command_native({name="subprocess", args=args})
 
         if result['status'] ~= 0 then
             mp.osd_message('Error creating clip', 10)
-            return
+            return false
         end
     end
 
@@ -62,10 +66,10 @@ function prepare_clip()
     args = {
         'ffmpeg',
             '-v', 'fatal',
-            '-ss', tostring(loopa), '-t', tostring(length), '-i', tostring(path),
+            '-ss', tostring(loopa), '-t', tostring(length),
+            '-i', tostring(path),
             '-map_metadata', '-1',
             '-ac', '2',
-            --'-filter:a', 'acompressor=ratio=20:threshold=.001:makeup=64:attack=20:release=1000,volume=2.5',
             '-sn',
             '-b:a', '128k',
             '-maxrate', abr_video .. 'k',
@@ -113,6 +117,9 @@ function clip()
     mp.osd_message('Clipping...', 10)
 
     args = prepare_clip()
+    if not args then
+        return
+    end
 
     result = mp.command_native({name="subprocess", args=args})
 
