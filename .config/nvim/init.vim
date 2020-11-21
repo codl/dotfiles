@@ -167,16 +167,17 @@ if exists('g:started_by_firenvim')
     let g:ctrlp_mruf_exclude = '.*'
 endif
 
+if exists('g:loaded_fugitive')
+    function! GitStatus()
+        let [a,m,r] = GitGutterGetHunkSummary()
+        if a > 0 || m > 0 || r > 0
+            return printf('+%d~%d-%d', a, m, r)
+        else
+            return ""
+        endif
+    endfunction
 
-function! GitStatus()
-    let [a,m,r] = GitGutterGetHunkSummary()
-    if a > 0 || m > 0 || r > 0
-        return printf('+%d~%d-%d', a, m, r)
-    else
-        return ""
-    endif
-endfunction
-
-set statusline=%<%q%f%(@%{FugitiveHead(7)}\%{GitStatus()}%)%h%m%r%=%y\ %-9.(%l,%c%V%)\ %P
+    set statusline=%<%q%f%(@%{FugitiveHead(7)}\%{GitStatus()}%)%h%m%r%=%y\ %-9.(%l,%c%V%)\ %P
+endif
 
 set diffopt+=vertical
