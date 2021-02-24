@@ -10,3 +10,11 @@ if status --is-interactive
         source (rbenv init -|psub)
     end
 end
+
+# path mangling
+contains $HOME/.local/bin $PATH; or set -p PATH $HOME/.local/bin
+contains $HOME/bin $PATH; or set -p PATH $HOME/bin
+
+# variables
+type -q nvim; and set -x EDITOR nvim
+type -q most; and set -x PAGER most

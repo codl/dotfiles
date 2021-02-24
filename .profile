@@ -1,6 +1,3 @@
-export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-export EDITOR="nvim"
-export PAGER="most"
 export MPD_MUSIC_DIR="$HOME/media/music"
 
 export XDG_DESKTOP_DIR="$HOME/.fuck"

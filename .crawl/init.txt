@@ -12,10 +12,6 @@ rest_wait_both = true
 # rest waits for both mp and hp
 
 explore_wall_bias = 1
-auto_butcher = satiated
-
-easy_eat_chunks = true
-# 'e' eats the oldest chunk without asking
 
 equip_unequip = true
 # equipping an already equipped item unequips it
