@@ -1,6 +1,0 @@
-clear Lock
-keysym Caps_Lock = Escape
-
-keysym Escape = F15 F15
-keysym twosuperior = F16 F16
-keysym ugrave = backslash percent
