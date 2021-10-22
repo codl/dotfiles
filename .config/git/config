@@ -26,8 +26,6 @@
 
 [core]
 	commitGraph = true
-[commit]
-	gpgSign = true
 [rebase]
 	autoStash = true
 
