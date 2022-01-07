@@ -6,8 +6,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'farmergreg/vim-lastplace'
 Plug 'tpope/vim-sleuth' " autodetects tab settings
 
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-vinegar'
+Plug 'ctrlpvim/ctrlp.vim' " fuzzy finder
+Plug 'tpope/vim-vinegar' " netrw make good
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb' " github support for :GBrowse
@@ -21,9 +21,9 @@ Plug 'ap/vim-css-color'
 
 Plug 'dag/vim-fish'
 
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+"Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
-Plug 'simnalamburt/vim-mundo'
+"Plug 'simnalamburt/vim-mundo'
 
 "Plug 'jkramer/vim-checkbox'
 "Plug 'w0rp/ale'
