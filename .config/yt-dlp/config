@@ -3,7 +3,7 @@
 --sub-langs all
 --add-metadata
 --embed-thumbnail
---xattrs
+#--xattrs
 #--external-downloader aria2c
 #--external-downloader-args '--continue --split=3 --max-connection-per-server=3 --max-concurrent-downloads=3 -k 1M'
 
