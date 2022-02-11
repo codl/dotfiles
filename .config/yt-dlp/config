@@ -8,4 +8,4 @@
 #--external-downloader-args '--continue --split=3 --max-connection-per-server=3 --max-concurrent-downloads=3 -k 1M'
 
 --paths temp:/tmp/
---cookies-from-browser firefox
+#--cookies-from-browser firefox
