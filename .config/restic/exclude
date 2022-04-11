@@ -17,3 +17,6 @@ node_modules
 $HOME/.config/syncthing/index-*.db/
 __pycache__
 .stversions
+
+$HOME/.local/share/Steam/steamapps/common/
+$HOME/.local/share/Steam/steamapps/downloading/

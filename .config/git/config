@@ -28,6 +28,7 @@
 	commitGraph = true
 [rebase]
 	autoStash = true
+	autoSquash = true
 
 [merge]
 	ff = only
