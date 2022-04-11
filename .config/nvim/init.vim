@@ -10,7 +10,7 @@ Plug 'ctrlpvim/ctrlp.vim' " fuzzy finder
 Plug 'tpope/vim-vinegar' " netrw make good
 
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb' " github support for :GBrowse
+"Plug 'tpope/vim-rhubarb' " github support for :GBrowse
 
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'mileszs/ack.vim', { 'on': 'Ack' }
@@ -21,17 +21,7 @@ Plug 'ap/vim-css-color'
 
 Plug 'dag/vim-fish'
 
-"Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-
-"Plug 'simnalamburt/vim-mundo'
-
-"Plug 'jkramer/vim-checkbox'
-"Plug 'w0rp/ale'
-"Plug 'tpope/vim-obsession'
-"Plug 'tpope/vim-dispatch'
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'zchee/deoplete-jedi'
-"Plug 'mhinz/vim-signify'
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 call plug#end()
 
