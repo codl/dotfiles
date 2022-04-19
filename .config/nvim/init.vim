@@ -23,6 +23,13 @@ Plug 'dag/vim-fish'
 
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neco-syntax'
+Plug 'deoplete-plugins/deoplete-lsp'
+Plug 'neovim/nvim-lspconfig'
+
+Plug 'mhinz/vim-startify'
+
 call plug#end()
 
 set nocompatible
@@ -171,3 +178,11 @@ if exists('g:loaded_fugitive')
 endif
 
 set diffopt+=vertical
+
+let g:deoplete#enable_at_startup = 1
+
+
+let g:startify_custom_header = []
+let g:startify_enable_special = 0
+
+lua require'lspconfig'.pyright.setup{}
