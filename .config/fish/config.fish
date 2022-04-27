@@ -18,3 +18,5 @@ contains $HOME/bin $PATH; or set -p PATH $HOME/bin
 # variables
 type -q nvim; and set -x EDITOR nvim
 type -q most; and set -x PAGER most
+
+type --query direnv; and direnv hook fish | source
