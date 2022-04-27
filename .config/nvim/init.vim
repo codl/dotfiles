@@ -186,4 +186,9 @@ let g:deoplete#enable_at_startup = 1
 let g:startify_custom_header = []
 let g:startify_enable_special = 0
 
-lua require'lspconfig'.pyright.setup{}
+lua << EOF
+pcall(function ()
+    lspconfig = require'lspconfig'
+    lspconfig.pyright.setup{}
+end)
+EOF
