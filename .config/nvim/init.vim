@@ -28,7 +28,8 @@ Plug 'Shougo/neco-syntax'
 Plug 'deoplete-plugins/deoplete-lsp'
 Plug 'neovim/nvim-lspconfig'
 
-Plug 'mhinz/vim-startify'
+
+Plug 'direnv/direnv.vim'
 
 call plug#end()
 
