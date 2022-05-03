@@ -23,11 +23,14 @@ Plug 'dag/vim-fish'
 
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neco-syntax'
-Plug 'deoplete-plugins/deoplete-lsp'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/neco-syntax'
+"Plug 'deoplete-plugins/deoplete-lsp'
+
 Plug 'neovim/nvim-lspconfig'
 
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'} " snippets
 
 Plug 'direnv/direnv.vim'
 
@@ -186,9 +189,12 @@ let g:deoplete#enable_at_startup = 1
 let g:startify_custom_header = []
 let g:startify_enable_special = 0
 
+let g:coq_settings = { 'auto_start': v:true }
+
 lua << EOF
 pcall(function ()
-    lspconfig = require'lspconfig'
-    lspconfig.pyright.setup{}
+    local lspconfig = require "lspconfig"
+    local coq = require "coq"
+    lspconfig.pyright.setup(coq.lsp_ensure_capabilities({}))
 end)
 EOF
