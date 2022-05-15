@@ -29,8 +29,10 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 Plug 'neovim/nvim-lspconfig'
 
-Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
-Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'} " snippets
+"Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+"Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'} " snippets
+
+Plug 'SirVer/ultisnips'
 
 Plug 'direnv/direnv.vim'
 
@@ -193,8 +195,10 @@ let g:coq_settings = { 'auto_start': v:true }
 
 lua << EOF
 pcall(function ()
+    --local coq = require "coq"
     local lspconfig = require "lspconfig"
-    local coq = require "coq"
-    lspconfig.pyright.setup(coq.lsp_ensure_capabilities({}))
+    --lspconfig.pyright.setup(coq.lsp_ensure_capabilities({}))
+    lspconfig.pyright.setup()
+    lspconfig.rust_analyzer.setup()
 end)
 EOF
