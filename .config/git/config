@@ -46,3 +46,6 @@
 	templateDir = ~/dotfiles/.config/git/template/
 	# this *must* point directly at the dotfiles repo rather than the deployed
 	# copy, as otherwise git will simply copy the symlinks
+
+[commit]
+	verbose = true
