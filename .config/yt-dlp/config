@@ -1,6 +1,6 @@
 --no-playlist
 --embed-subs
---sub-langs all
+--sub-langs all,-live_chat
 --add-metadata
 --embed-thumbnail
 #--xattrs
