@@ -36,7 +36,16 @@ Plug 'SirVer/ultisnips'
 
 Plug 'direnv/direnv.vim'
 
+Plug 'raimon49/requirements.txt.vim'
+
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-buffer'
+
 call plug#end()
+
 
 set nocompatible
 
@@ -80,6 +89,9 @@ endif
 set pastetoggle=<F2> " press f2 in insert mode to disable paste-harmful features
 
 set wildmenu " show a sexy menu when tab-completing
+set completeopt=menuone,noinsert,noselect
+
+set signcolumn=yes
 
 set scrolloff=2 " start scrolling 3 lines before window border
 
@@ -195,10 +207,31 @@ let g:coq_settings = { 'auto_start': v:true }
 
 lua << EOF
 pcall(function ()
-    --local coq = require "coq"
     local lspconfig = require "lspconfig"
-    --lspconfig.pyright.setup(coq.lsp_ensure_capabilities({}))
-    lspconfig.pyright.setup()
-    lspconfig.rust_analyzer.setup()
+    lspconfig.rust_analyzer.setup({})
+    lspconfig.pyright.setup({})
+    pcall(function()
+        local cmp = require'cmp'
+        cmp.setup({
+        -- Enable LSP snippets
+        snippet = {
+            expand = function(args)
+                vim.fn["UltiSnips#Anon"](args.body)
+            end,
+        },
+        mapping = cmp.mapping.preset.insert({
+                ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+            }),
+        -- Installed sources
+        sources = {
+            { name = 'nvim_lsp' },
+            { name = 'vsnip' },
+            { name = 'path' },
+            { name = 'buffer' },
+        },
+        })
+    end)
 end)
 EOF
+
+let g:python3_host_prog = '/usr/bin/python3'
