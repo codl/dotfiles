@@ -207,9 +207,18 @@ let g:coq_settings = { 'auto_start': v:true }
 
 lua << EOF
 pcall(function ()
+    local on_attach = function(client, bufnr)
+        local bufopts = { noremap=true, silent=true, buffer=bufnr }
+        vim.keymap.set('n', 'H', vim.lsp.buf.hover, bufopts)
+        vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, bufopts)
+    end
     local lspconfig = require "lspconfig"
-    lspconfig.rust_analyzer.setup({})
-    lspconfig.pyright.setup({})
+    lspconfig.rust_analyzer.setup({
+        on_attach = on_attach,
+    })
+    lspconfig.pyright.setup({
+        on_attach = on_attach,
+    })
     pcall(function()
         local cmp = require'cmp'
         cmp.setup({
