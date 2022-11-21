@@ -9,6 +9,8 @@ export XDG_PUBLICSHARE_DIR="$HOME/.fuck"
 export XDG_TEMPLATES_DIR="$HOME/.fuck/what even is templates"
 export XDG_VIDEOS_DIR="$HOME/media"
 
+export GLFW_IM_MODULE="ibus"
+
 if [[ -f ~/.profile.credentials ]]; then
     source ~/.profile.credentials
 fi
