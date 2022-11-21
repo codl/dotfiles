@@ -12,6 +12,7 @@ if status --is-interactive
 end
 
 # path mangling
+contains $HOME/.cargo/bin $PATH; or set -p PATH $HOME/.cargo/bin
 contains $HOME/.local/bin $PATH; or set -p PATH $HOME/.local/bin
 contains $HOME/bin $PATH; or set -p PATH $HOME/bin
 
@@ -20,3 +21,4 @@ type -q nvim; and set -x EDITOR nvim
 type -q most; and set -x PAGER most
 
 type --query direnv; and direnv hook fish | source
+type --query pyenv; and pyenv init - | source

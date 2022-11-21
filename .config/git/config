@@ -1,7 +1,7 @@
 [user]
 	name = codl
 	email = codl@codl.fr
-	signingkey = BC5A4983
+	signingkey = 5D0D34EED52FFF7F5638A124C7256E5FEA8D9A16
 
 [color "branch"]
 	current = yellow reverse
