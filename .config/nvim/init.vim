@@ -61,7 +61,7 @@ set shiftwidth=4 " indent 4 spaces
 set shiftround " when indenting / deleting indentation, round to shiftwidth
 set smarttab   " ^ same thing with <Tab>
 set tabstop=4 " a tab is as wide as 4 spaces
-set expandtab " <Tab> inserts spaces
+set noexpandtab " <Tab> inserts <Tab>, not spaces
 set autoindent " keep indentation on carriage return
 set copyindent " ^ use previous line's indentation
 
