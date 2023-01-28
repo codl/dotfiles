@@ -22,3 +22,4 @@ type -q most; and set -x PAGER most
 
 type --query direnv; and direnv hook fish | source
 type --query pyenv; and pyenv init - | source
+type --query zoxide; and zoxide init fish | source
