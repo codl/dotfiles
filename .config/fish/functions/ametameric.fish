@@ -6,8 +6,7 @@
 # end
 #
 # Command-line flags -r (--reverse) and -d (--desaturated) download and apply
-# variants of the palette. As of 2020-05-30 the desaturated variant is not
-# available, not much I can do about that.
+# variants of the palette.
 #
 # On first run, it will download the palette in the background and apply it when
 # it is done. Subsequent runs will apply the palette from cache.
