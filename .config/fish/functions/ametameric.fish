@@ -28,12 +28,16 @@ function ametameric
         set filename 'ametameric-desaturated.esc'
     end
 
-    if test ! -f $HOME/.cache/ametameric/$filename
-        mkdir -p $HOME/.cache/ametameric/
+    set CACHEBASE "$HOME/.cache"
+    set -q XDG_CACHE_HOME; and set CACHEBASE $XDG_CACHE_HOME
+    set CACHEDIR "$CACHEBASE/ametameric"
+
+    if test ! -f $CACHEDIR/$filename
+        mkdir -p $CACHEDIR
         echo "Downloading $filename in the background..."
         wget -q "https://pippin.gimp.org/ametameric/"$filename \
             --user-agent="ametameric.fish +https://github.com/codl/dotfiles/blob/master/.config/fish/functions/ametameric.fish" \
-            -O $HOME/.cache/ametameric/$filename &
+            -O $CACHEDIR/$filename &
         function _postdownload --inherit-variable filename --on-process-exit (jobs --last --pid)
             __ametameric_init $filename
         end
