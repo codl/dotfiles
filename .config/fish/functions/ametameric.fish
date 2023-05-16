@@ -15,8 +15,11 @@
 
 function ametameric
 
-    argparse --exclusive=r,d 'r/reverse' 'd/desaturated' -- $argv
-    or return
+    argparse --exclusive=r,d 'r/reverse' 'd/desaturated' 'h/help' -- $argv
+    if test $status != 0 -o -n "$_flag_h"
+        echo "usage: ametameric [(-r | --reverse)|(-d | --desaturated)]"
+        return
+    end
 
     set filename 'ametameric.esc'
     if set -q _flag_r
