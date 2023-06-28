@@ -9,3 +9,7 @@
 
 #--paths temp:/tmp/
 #--cookies-from-browser firefox
+
+--format=bestvideo*+bestvideo*[height<=1080]+bestaudio/best+best[height<=1080]/best
+--video-multistreams
+--audio-multistreams
