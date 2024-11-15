@@ -99,6 +99,7 @@ require('lazy').setup({
     'hrsh7th/nvim-cmp',
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
+    
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
 
@@ -160,10 +161,8 @@ require('lazy').setup({
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
+    opts = {},
+    main = "ibl",
   },
 
   -- "gc" to comment visual regions/lines

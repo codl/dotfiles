@@ -13,3 +13,6 @@
 --format=bestvideo*[height<=1080]+bestaudio/best[height<=1080]/best
 --video-multistreams
 --audio-multistreams
+
+--netrc-location /home/codl/sync/yt-dlp-netrc
+--cookies ~/.local/share/yt-dlp/cookie-jar

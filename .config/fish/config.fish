@@ -3,7 +3,7 @@ if status --is-login
 end
 
 if status --is-interactive
-    ametameric -r
+    #ametameric -r
 
     if test -d $HOME/.rbenv
         set -x PATH $HOME/.rbenv/bin $PATH
