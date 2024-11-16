@@ -3,8 +3,6 @@ if status --is-login
 end
 
 if status --is-interactive
-    #ametameric -r
-
     if test -d $HOME/.rbenv
         set -x PATH $HOME/.rbenv/bin $PATH
         source (rbenv init -|psub)
@@ -23,3 +21,4 @@ type -q most; and set -x PAGER most
 type --query direnv; and direnv hook fish | source
 type --query pyenv; and pyenv init - | source
 type --query zoxide; and zoxide init fish | source
+type --query uv; and uv generate-shell-completion fish | source
