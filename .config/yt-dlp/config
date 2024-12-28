@@ -16,3 +16,9 @@
 
 --netrc-location /home/codl/sync/yt-dlp-netrc
 --cookies ~/.local/share/yt-dlp/cookie-jar
+
+--output '%(playlist_index&{:02d} |)s%(title)s [%(id)s].%(ext)s'
+
+--sleep-requests 1.25
+--min-sleep-interval 60
+--max-sleep-interval 90
