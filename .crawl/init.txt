@@ -1,17 +1,11 @@
-view_lock = false
-center_on_scroll = true
+#view_lock = false
+#center_on_scroll = true
 
 show_travel_trail = true
-travel_delay = 20
+travel_delay = 0
 
 restart_after_save = true
 restart_after_game = true
-
-
-rest_wait_both = true
-# rest waits for both mp and hp
-
-explore_wall_bias = 1
 
 equip_unequip = true
 # equipping an already equipped item unequips it
@@ -19,19 +13,13 @@ equip_unequip = true
 default_manual_training = true
 
 assign_item_slot = backward
-# poorly worded, causes new items to use
-# the slot after the last slot instead of the first free slot
-
-autofight_warning = 100
-# require 100ms between tabs
-
-autofight_wait = true
-
-show_game_time = false
-# show player turns instead
+# causes new items to use the slot after the last slot instead of the first free slot
 
 dump_order += turns_by_place, kills_by_place
 
 user_note_prefix = "
 
 note_hp_percent = 10
+
+clear_messages = true
+# clear message box between player actions
